@@ -1,13 +1,15 @@
-import Header from "@/components/layout/Header";
 import HeroSection from "@/components/hero/HeroSection";
 import StorySection from "@/components/story/StorySection";
+import GallerySection from "@/components/ui/GallerySection";
+import ReviewSection from "@/components/ui/ReviewSection";
 
 export default function Home() {
     return (
-        <main className="min-h-screen">
-            <Header />
+        <div className="flex flex-col">
             <HeroSection />
             <StorySection />
-        </main>
+            <GallerySection />
+            <ReviewSection />
+        </div>
     );
 }

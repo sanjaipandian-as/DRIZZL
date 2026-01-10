@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     keywords: ["coffee", "cafe", "template", "coffee shop", "cafena"],
 };
 
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -28,8 +31,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
-            <body className="font-sans">
-                {children}
+            <body className="font-sans flex flex-col min-h-screen">
+                <Header />
+                <main className="flex-grow">
+                    {children}
+                </main>
+                <Footer />
             </body>
         </html>
     );

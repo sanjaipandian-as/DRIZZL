@@ -36,20 +36,20 @@ __turbopack_context__.s([
 ]);
 const NAVIGATION_ITEMS = [
     {
-        label: "HOME",
+        label: "Home",
         href: "/"
     },
     {
-        label: "PRODUCTS",
-        href: "#products"
+        label: "Products",
+        href: "/products"
     },
     {
-        label: "ABOUT",
-        href: "#about"
+        label: "About",
+        href: "/about"
     },
     {
-        label: "CONTACT-US",
-        href: "#contact"
+        label: "Contact",
+        href: "/contact"
     }
 ];
 const COUNTDOWN_TARGET = new Date(Date.now() + 17 * 24 * 60 * 60 * 1000 + 3 * 60 * 60 * 1000 + 14 * 60 * 1000);

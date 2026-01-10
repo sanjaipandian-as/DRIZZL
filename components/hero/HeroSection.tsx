@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Cafe from '@/components/assets/Cafe.jpg';
 import cafebg from '@/components/assets/cafebg.png';
@@ -35,12 +36,16 @@ export default function HeroSection() {
                         </div>
 
                         <div className="flex flex-wrap gap-4">
-                            <Button variant="primary">
-                                Explore Menu
-                            </Button>
-                            <Button variant="outline">
-                                Our Story
-                            </Button>
+                            <Link href="/products">
+                                <Button variant="primary">
+                                    Explore Menu
+                                </Button>
+                            </Link>
+                            <Link href="/about">
+                                <Button variant="outline">
+                                    Our Story
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* Stats */}

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 const ChevronPattern = () => (
     <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -70,9 +71,11 @@ export default function StorySection() {
                     </div>
 
                     <div className="mt-10">
-                        <button className="bg-[#D97246] hover:bg-[#c4633b] text-white font-bold py-3 px-8 transition-colors duration-300">
-                            Read More
-                        </button>
+                        <Link href="/about">
+                            <button className="bg-[#D97246] hover:bg-[#c4633b] text-white font-bold py-3 px-8 transition-colors duration-300">
+                                Read More
+                            </button>
+                        </Link>
                     </div>
                 </div>
 

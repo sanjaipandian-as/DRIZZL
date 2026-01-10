@@ -1,10 +1,10 @@
 import { NavigationItem } from "@/types";
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
-    { label: "HOME", href: "/" },
-    { label: "PRODUCTS", href: "#products" },
-    { label: "ABOUT", href: "#about" },
-    { label: "CONTACT-US", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "Products", href: "/products" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
 ];
 
 // Countdown target date (17 days, 03 hours, 14 minutes from now as shown in design)
