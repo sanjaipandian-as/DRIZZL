@@ -6,11 +6,11 @@ export default function Button({
     onClick,
     className = ''
 }: ButtonProps) {
-    const baseStyles = "px-8 py-3 font-semibold text-sm tracking-wider transition-all duration-300 transform hover:scale-105 active:scale-95";
+    const baseStyles = "px-8 py-3 font-semibold text-sm tracking-wider transition-all duration-300 transform hover:scale-105 active:scale-95 rounded-sm uppercase";
 
     const variants = {
-        primary: "bg-gold-500 text-white hover:bg-gold-400 shadow-lg hover:shadow-xl",
-        outline: "border-2 border-coffee-900 text-coffee-900 hover:bg-coffee-900 hover:text-white"
+        primary: "bg-rust-700 text-cream-100 hover:bg-rust-600 shadow-lg hover:shadow-xl shadow-rust-900/20",
+        outline: "border-2 border-forest-800 text-forest-900 hover:bg-forest-800 hover:text-cream-100"
     };
 
     return (

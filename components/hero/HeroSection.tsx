@@ -3,16 +3,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
-import Cafe from '@/components/assets/Cafe.jpg';
 import cafebg from '@/components/assets/cafebg.png';
+import { siteConfig } from '@/lib/constants';
 
 export default function HeroSection() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-cream-50 via-cream-100 to-coffee-50">
+        // UPDATED: Background now fades into a subtle green (forest-50) at the bottom right to bring out the theme
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-cream-100 via-cream-50 to-forest-100/50">
+            
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-64 h-64 bg-coffee-200/20 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl animate-splash"></div>
+                {/* UPDATED: Made blobs stronger green so they are visible */}
+                <div className="absolute top-20 left-10 w-64 h-64 bg-forest-300/20 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-forest-700/10 rounded-full blur-3xl animate-splash"></div>
             </div>
 
             {/* Main Content */}
@@ -21,24 +24,29 @@ export default function HeroSection() {
                     {/* Left Content */}
                     <div className="space-y-8 animate-slide-up">
                         <div className="space-y-4">
-                            <p className="text-gold-500 font-semibold tracking-wider uppercase text-sm">
-                                Welcome to NEXEN.MEDIA
+                            {/* UPDATED: Accent text is now Rust Red */}
+                            <p className="text-rust-600 font-bold tracking-widest uppercase text-sm">
+                                Welcome to {siteConfig.brand.name}
                             </p>
-                            <h1 className="font-display text-6xl md:text-7xl lg:text-8xl text-coffee-900 leading-tight text-shadow">
-                                BEST COFFEE
+                            
+                            {/* UPDATED: H1 is now 'text-forest-700' (#114232) - The exact Logo Green */}
+                            <h1 className="font-display text-6xl md:text-7xl lg:text-8xl text-forest-700 leading-tight text-shadow">
+                                PURE BREW
                                 <br />
-                                <span className="text-gold-500">IN TOWN</span>
+                                <span className="text-rust-600">PURE SOUL</span>
                             </h1>
-                            <p className="text-coffee-700 text-lg md:text-xl max-w-lg leading-relaxed">
-                                Experience the perfect blend of premium beans, expertly roasted and brewed to perfection.
-                                Every cup tells a story of passion and craftsmanship.
+                            
+                            {/* UPDATED: Subtext is forest-800 for readability but clearly green-toned */}
+                            <p className="text-forest-800 text-lg md:text-xl max-w-lg leading-relaxed font-light">
+                                Experience the earthy warmth of organic blends, roasted to perfection. 
+                                {siteConfig.brand.tagline}.
                             </p>
                         </div>
 
                         <div className="flex flex-wrap gap-4">
-                            <Link href="/products">
+                            <Link href="/menu">
                                 <Button variant="primary">
-                                    Explore Menu
+                                    View Menu
                                 </Button>
                             </Link>
                             <Link href="/about">
@@ -49,18 +57,19 @@ export default function HeroSection() {
                         </div>
 
                         {/* Stats */}
-                        <div className="flex gap-8 pt-8 border-t border-coffee-200">
+                        {/* UPDATED: Borders and text updated to Forest Green */}
+                        <div className="flex gap-8 pt-8 border-t border-forest-200">
                             <div>
-                                <div className="font-display text-4xl text-coffee-900">500+</div>
-                                <p className="text-coffee-600 text-sm">Happy Customers</p>
+                                <div className="font-display text-4xl text-forest-700">100%</div>
+                                <p className="text-forest-600 text-xs font-bold uppercase tracking-wider">Organic</p>
                             </div>
                             <div>
-                                <div className="font-display text-4xl text-coffee-900">50+</div>
-                                <p className="text-coffee-600 text-sm">Coffee Varieties</p>
+                                <div className="font-display text-4xl text-forest-700">20+</div>
+                                <p className="text-forest-600 text-xs font-bold uppercase tracking-wider">Blends</p>
                             </div>
                             <div>
-                                <div className="font-display text-4xl text-coffee-900">10+</div>
-                                <p className="text-coffee-600 text-sm">Years Experience</p>
+                                <div className="font-display text-4xl text-forest-700">4.9</div>
+                                <p className="text-forest-600 text-xs font-bold uppercase tracking-wider">Rating</p>
                             </div>
                         </div>
                     </div>
@@ -71,28 +80,24 @@ export default function HeroSection() {
                             <div className="relative z-10 group">
                                 <Image
                                     src={cafebg}
-                                    alt="Premium Coffee"
+                                    alt="Drizzl Cafe Signature Blend"
                                     width={850}
                                     height={850}
-                                    className="transition-transform "
+                                    className="transition-transform duration-700 group-hover:scale-105 drop-shadow-2xl"
                                     priority
                                 />
 
-                                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold-500/80 rounded-full blur-xl animate-float"></div>
+                                {/* Decorative Orbs - Rust and Green mix */}
+                                <div className="absolute -top-6 -right-6 w-24 h-24 bg-rust-500/60 rounded-full blur-xl animate-float"></div>
                                 <div
-                                    className="absolute -bottom-6 -left-6 w-32 h-32 bg-coffee-400/60 rounded-full blur-xl animate-float"
+                                    className="absolute -bottom-6 -left-6 w-32 h-32 bg-forest-600/30 rounded-full blur-xl animate-float"
                                     style={{ animationDelay: "1s" }}
                                 ></div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-
-            {/* Scroll Indicator */}
-
         </section>
     );
 }

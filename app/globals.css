@@ -9,36 +9,39 @@
 
 @layer base {
   body {
-    @apply bg-cream-100 text-coffee-900 antialiased;
+    /* FIX: Changed text-coffee-900 to text-forest-900 */
+    @apply bg-cream-200 text-forest-900 antialiased;
   }
 }
 
 @layer utilities {
   .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(17, 66, 50, 0.1);
   }
   
   .glass-effect {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(243, 239, 230, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(17, 66, 50, 0.05);
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar matched to Forest Green theme */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #E6DBC9; /* cream-300 */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C89968;
+  background: #114232; /* forest-700 */
   border-radius: 5px;
+  border: 2px solid #E6DBC9;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A67C52;
+  background: #7A2820; /* rust-700 */
 }

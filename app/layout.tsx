@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { siteConfig } from "@/lib/constants";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -16,13 +19,13 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-    title: "CAFENA - Best Template for Coffee Shop",
-    description: "Premium coffee shop template with modern design and smooth animations",
-    keywords: ["coffee", "cafe", "template", "coffee shop", "cafena"],
+    title: {
+        default: siteConfig.brand.name,
+        template: `%s | ${siteConfig.brand.name}`,
+    },
+    description: siteConfig.brand.tagline,
+    keywords: ["coffee", "cafe", "organic", "bakery", "drizzl"],
 };
-
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 export default function RootLayout({
     children,
@@ -30,8 +33,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
-            <body className="font-sans flex flex-col min-h-screen">
+        <html lang="en" className={`${inter.variable} ${bebasNeue.variable} scroll-smooth`}>
+            <body className="font-sans flex flex-col min-h-screen bg-cream-200 text-forest-900 antialiased selection:bg-rust-200 selection:text-forest-900">
                 <Header />
                 <main className="flex-grow">
                     {children}

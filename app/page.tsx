@@ -5,7 +5,7 @@ import ReviewSection from "@/components/ui/ReviewSection";
 
 export default function Home() {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full overflow-hidden">
             <HeroSection />
             <StorySection />
             <GallerySection />
