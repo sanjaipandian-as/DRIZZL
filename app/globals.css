@@ -8,40 +8,98 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
-    /* FIX: Changed text-coffee-900 to text-forest-900 */
-    @apply bg-cream-200 text-forest-900 antialiased;
+    @apply bg-[#FDFCFB] text-coffee-950 antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-gold-500 text-white;
   }
 }
 
 @layer utilities {
   .text-shadow {
-    text-shadow: 2px 2px 4px rgba(17, 66, 50, 0.1);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   }
-  
+
+  .text-glow {
+    text-shadow: 0 0 40px rgba(200, 153, 104, 0.3);
+  }
+
   .glass-effect {
-    background: rgba(243, 239, 230, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(17, 66, 50, 0.05);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
-/* Custom scrollbar matched to Forest Green theme */
+/* Premium Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #E6DBC9; /* cream-300 */
+  background: #FDFCFB;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #114232; /* forest-700 */
-  border-radius: 5px;
-  border: 2px solid #E6DBC9;
+  background: #D4A574;
+  border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7A2820; /* rust-700 */
+  background: #C89968;
+}
+
+/* Content Protection & Polish */
+img,
+video {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: auto;
+}
+
+/* Prevent layout shift during font loading */
+.font-display {
+  font-display: swap;
+}
+
+/* Custom Animations for Premium Feel */
+@keyframes soft-float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-soft-float {
+  animation: soft-float 4s ease-in-out infinite;
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Button from '@/components/ui/Button';
 import { siteConfig } from '@/lib/constants';
@@ -41,6 +42,12 @@ const getIcon = (name: string) => {
     }
 };
 
+const NAVIGATION_ITEMS = [
+    { label: 'Home', href: '/' },
+    { label: 'Products', href: '/products' },
+    { label: 'About', href: '/about' },
+];
+
 export default function Header() {
     const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
@@ -56,56 +63,67 @@ export default function Header() {
     return (
         <>
             {/* Top Header - Logo and CTA */}
-            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-effect shadow-md py-2' : 'bg-transparent py-4'}`}>
-                <nav className="container mx-auto px-6">
-                    <div className="flex items-center justify-between">
+            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? 'bg-white/30 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-b border-white/20 py-3 supports-[backdrop-filter]:bg-white/20' : 'bg-transparent py-5'}`}>
+                <nav className="container mx-auto px-6 md:px-12">
+                    <div className="flex items-center justify-between w-full">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center space-x-2 group">
-                            <div className="text-3xl md:text-4xl font-display text-forest-900 group-hover:text-rust-700 transition-colors duration-300 tracking-widest">
-                                {siteConfig.brand.logoText}
+                        <Link href="/" className="flex items-center gap-3 group">
+                            <Image
+                                src="/LogoV1.png"
+                                alt="Drizzl Cafe"
+                                width={140}
+                                height={48}
+                                className="h-12 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                            />
+                            <div className="flex items-baseline gap-2">
+                                <span className="text-2xl md:text-3xl font-display font-black tracking-tight text-[#4A3424] italic -skew-x-6 transform">
+                                    DRIZZL
+                                </span>
+                                <span className="text-xl md:text-2xl font-display font-bold tracking-wider text-[#4A3424]">
+                                    CAFE
+                                </span>
                             </div>
                         </Link>
 
-                        {/* Desktop Navigation */}
-                        <ul className="hidden md:flex items-center space-x-8">
-                            {siteConfig.nav.map((item) => (
-                                <li key={item.name}>
-                                    <Link
-                                        href={item.href}
-                                        className={`text-sm tracking-widest transition-colors duration-300 font-semibold uppercase ${
-                                            pathname === item.href 
-                                            ? 'text-rust-600' 
-                                            : 'text-forest-800 hover:text-rust-600'
-                                        }`}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                        {/* Right Side: Navigation + Contact Button */}
+                        <div className="flex items-center gap-6 md:gap-8">
+                            {/* Desktop Navigation */}
+                            <ul className="hidden md:flex items-center gap-8 lg:gap-10">
+                                {NAVIGATION_ITEMS.map((item) => (
+                                    <li key={item.label}>
+                                        <Link
+                                            href={item.href}
+                                            className={`relative text-base font-semibold tracking-wide transition-colors duration-300 py-2
+                                                ${pathname === item.href ? 'text-[#4A3424]' : 'text-[#6B4E35] hover:text-[#4A3424]'}
+                                                after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#4A3424] after:transition-all after:duration-300 hover:after:w-full
+                                                ${pathname === item.href ? 'after:w-full' : ''}
+                                            `}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
 
-                        {/* CTA Button */}
-                        <div className="flex items-center gap-4">
-                            <Button variant="primary" className="scale-90 md:scale-100">
-                                Order Now
-                            </Button>
+                            {/* CTA Button */}
+                            <Link href="/contact">
+                                <Button variant="primary" className="px-6 py-2.5 text-sm font-bold tracking-wide shadow-lg hover:shadow-xl bg-[#4A3424] hover:bg-[#3E2b1F] text-white transition-all duration-300 rounded-lg">
+                                    Contact
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </nav>
             </header>
 
             {/* Mobile Bottom Navigation */}
-            <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-effect border-t border-forest-200/20 px-6 py-3">
+            <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-coffee-200/20 px-6 py-3 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
                 <ul className="flex items-center justify-between">
                     {siteConfig.nav.map((item) => (
                         <li key={item.name}>
                             <Link
                                 href={item.href}
-                                className={`flex flex-col items-center gap-1 px-3 py-1 rounded-xl transition-all duration-300 ${
-                                    pathname === item.href 
-                                    ? 'text-rust-600 bg-rust-500/10' 
-                                    : 'text-forest-600 hover:text-rust-600'
-                                }`}
+                                className={`flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-all duration-300 ${pathname === item.href ? 'text-[#A67C52] bg-[#A67C52]/10' : 'text-coffee-600 hover:text-[#A67C52]'}`}
                             >
                                 {getIcon(item.name)}
                                 <span className="text-[10px] font-bold tracking-widest uppercase">{item.name}</span>

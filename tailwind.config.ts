@@ -17,6 +17,24 @@ const config: Config = {
                     300: '#E6DBC9',
                     400: '#D9C7AC',
                 },
+                coffee: {
+                    50: '#F5E6D3',
+                    100: '#E8D4B8',
+                    200: '#D4A574',
+                    300: '#C89968',
+                    400: '#B8865D',
+                    500: '#A67C52',
+                    600: '#8B6846',
+                    700: '#6B4E35',
+                    800: '#4A3424',
+                    900: '#2D1F16',
+                    950: '#1A120B',
+                },
+                gold: {
+                    400: '#D4A574',
+                    500: '#C89968',
+                    600: '#B8865D',
+                },
                 forest: {
                     50: '#E7F0ED',
                     100: '#CFE0DA',
@@ -47,14 +65,10 @@ const config: Config = {
             fontFamily: {
                 sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
                 display: ['var(--font-bebas)', 'sans-serif'],
+                serif: ['var(--font-playfair)', 'serif'],
+                script: ['var(--font-dancing)', 'cursive'],
             },
-            animation: {
-                'float': 'float 3s ease-in-out infinite',
-                'splash': 'splash 2s ease-in-out infinite',
-                'fade-in': 'fadeIn 0.6s ease-out',
-                'slide-up': 'slideUp 0.6s ease-out',
-                'spin-slow': 'spin 20s linear infinite',
-            },
+
             keyframes: {
                 float: {
                     '0%, 100%': { transform: 'translateY(0px)' },
@@ -72,6 +86,18 @@ const config: Config = {
                     '0%': { transform: 'translateY(30px)', opacity: '0' },
                     '100%': { transform: 'translateY(0)', opacity: '1' },
                 },
+                marquee: {
+                    '0%': { transform: 'translateX(0%)' },
+                    '100%': { transform: 'translateX(-100%)' },
+                },
+            },
+            animation: {
+                'float': 'float 3s ease-in-out infinite',
+                'splash': 'splash 2s ease-in-out infinite',
+                'fade-in': 'fadeIn 0.6s ease-out',
+                'slide-up': 'slideUp 0.6s ease-out',
+                'spin-slow': 'spin 20s linear infinite',
+                'marquee': 'marquee 25s linear infinite',
             },
         },
     },

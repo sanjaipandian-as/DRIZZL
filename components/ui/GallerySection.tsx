@@ -2,22 +2,22 @@
 
 const GALLERY_IMAGES = [
     {
-        url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop",
+        url: "/Drizzl3Cafe3.jpeg",
         title: "Artisan Brew",
         size: "large"
     },
     {
-        url: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=2078&auto=format&fit=crop",
+        url: "/Drizzle6.png",
         title: "Atmosphere",
         size: "small"
     },
     {
-        url: "https://images.unsplash.com/photo-1459755486867-b55449bb39ff?q=80&w=2069&auto=format&fit=crop",
+        url: "/DrizzlCafe5.jpeg",
         title: "Fresh Beans",
         size: "small"
     },
     {
-        url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop",
+        url: "/Drizzle4.png",
         title: "Espresso Art",
         size: "medium"
     },
