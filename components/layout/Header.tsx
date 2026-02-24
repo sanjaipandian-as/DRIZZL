@@ -67,21 +67,21 @@ export default function Header() {
                 <nav className="container mx-auto px-6 md:px-12">
                     <div className="flex items-center justify-between w-full">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-3 group">
+                        <Link href="/" className="flex items-center gap-3 group ">
                             <Image
                                 src="/LogoV1.png"
                                 alt="Drizzl Cafe"
-                                width={140}
-                                height={48}
-                                className="h-12 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                                width={150}
+                                height={50}
+                                className="h-12 w-auto object-contain group-hover:opacity-80 transition-opacity mb-2"
                             />
                             <div className="flex items-baseline gap-2">
-                                <span className="text-2xl md:text-3xl font-display font-black tracking-tight text-[#4A3424] italic -skew-x-6 transform">
-                                    DRIZZL
-                                </span>
-                                <span className="text-xl md:text-2xl font-display font-bold tracking-wider text-[#4A3424]">
-                                    CAFE
-                                </span>
+                            <span className="font-luxury text-2xl font-semibold tracking-[0.01em] text-500 text-[#4A3424] leading-none">
+                                DRIZZLE
+                            </span>
+                            <span className="font-display text-lg tracking-wide text-coffee-800">
+                                CAFÉ
+                            </span>
                             </div>
                         </Link>
 

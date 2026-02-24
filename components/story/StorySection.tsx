@@ -61,24 +61,25 @@ export default function StorySection() {
                     </div>
 
                     <div className="space-y-4 md:space-y-6 text-gray-300 text-base md:text-lg lg:text-xl leading-relaxed">
+
                         <p>
-                            A work meeting at a cafe sounds great until you actually try it. Spotty Wi-Fi, tangled wires, small tables and conversations so loud you can't focus.
+                            Drizzl Café is a premium yet welcoming space designed for everyday moments — whether
+you're grabbing a quick coffee, catching up with friends, or taking a relaxing break at Marina
+Mall.
+                        </p>
+
+                        <p>
+                            We believe great coffee, delicious food, and a comfortable ambience should be accessible to
+everyone.
+                        </p>
+                        <p>
+                            From freshly brewed beverages to mouth-watering snacks, everything we serve is crafted to
+deliver quality, consistency, and value.
                         </p>
 
                         <p className="font-bold text-[#D97246] uppercase">
-                            <span className="font-script text-[#D97246] text-2xl md:text-3xl lg:text-4xl capitalize">Drizzl Cafe</span> was created to fix that.
-                        </p>
-
-                        <p>
-                            Private meeting rooms with seamless tech, adjustable lighting, tables built for longer, more comfortable meetings and a menu designed to serve real food! From Turkish breakfasts and eggs to comforting South and North Indian meals, all plated for ease and served hot!
-                        </p>
-
-                        <p>
-                            Whether you're pitching to a client, huddling with your team, or catching up with friends this is your space.
-                        </p>
-
-                        <p className="font-bold text-[#D97246] uppercase">
-                            <span className="font-script text-[#D97246] text-2xl md:text-3xl lg:text-4xl capitalize">Drizzl Cafe</span> is where meetings get tastier
+                            At 
+                            <span className="font-script text-[#D97246] text-2xl md:text-3xl lg:text-4xl capitalize">Drizzl Cafe</span>, every visit feels warm, refreshing, and worth coming back to.
                         </p>
                     </div>
 

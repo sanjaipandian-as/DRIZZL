@@ -4,22 +4,19 @@ import { siteConfig } from '@/lib/constants';
 
 const REVIEWS = [
     {
-        name: "James Wilson",
-        role: "Coffee Enthusiast",
-        text: "The best organic blend I've had. The atmosphere is perfect for getting work done or just relaxing.",
-        avatar: "https://i.pravatar.cc/150?u=james"
+        name: "Sem boy",
+        role: "The Aroma Architect",
+        text: "A very nice comfortable cafe and best quality food and drinks served... 👍👍🥰🥰",
     },
     {
-        name: "Sarah Chen",
-        role: "Graphic Designer",
-        text: `${siteConfig.brand.name} is my daily go-to. The Wi-Fi is reliable, the staff is friendly, and the hazelnut flat white is to die for!`,
-        avatar: "https://i.pravatar.cc/150?u=sarah"
+        name: "Manisankar's",
+        role: "The Caffeine Curator",
+        text: "Great experience! The 5-star atmosphere and quality service make Drizzl Café a must-visit at Marina Mall. The ambiance is perfect for a quick break.",
     },
     {
-        name: "Michael Ross",
-        role: "Entrepreneur",
-        text: "Finally a place where 'meeting' and 'cafe' actually work together. The artisanal pastries are a game changer.",
-        avatar: "https://i.pravatar.cc/150?u=michael"
+        name: "Abinash Swain",
+        role: "Caffeine Connoisseur",
+        text: "Excellent service and top-notch quality. Always a pleasure visiting for a quick break.",
     }
 ];
 
@@ -39,9 +36,9 @@ export default function ReviewSection() {
                     </h3>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    {REVIEWS.map((review, i) => (
-                        <div key={review.name} className="p-10 bg-cream-50 rounded-sm shadow-lg shadow-forest-900/5 border border-forest-900/5 hover:shadow-xl hover:shadow-forest-900/10 transition-all duration-500 group">
+                <div className="grid md:grid-cols-3 gap-8 items-stretch">
+                    {REVIEWS.map((review) => (
+                        <div key={review.name} className="flex flex-col h-full p-10 bg-cream-50 rounded-sm shadow-lg shadow-forest-900/5 border border-forest-900/5 hover:shadow-xl hover:shadow-forest-900/10 transition-all duration-500 group">
                             <div className="mb-6 flex gap-1">
                                 {[1, 2, 3, 4, 5].map((s) => (
                                     <svg key={s} className="w-5 h-5 text-rust-500 fill-current" viewBox="0 0 20 20">
@@ -49,23 +46,19 @@ export default function ReviewSection() {
                                     </svg>
                                 ))}
                             </div>
+                            
                             <p className="text-forest-700 italic text-lg leading-relaxed mb-8 font-light">
                                 "{review.text}"
                             </p>
-                            <div className="flex items-center gap-4 pt-6 border-t border-forest-100">
-                                <img
-                                    src={review.avatar}
-                                    alt={review.name}
-                                    className="w-14 h-14 rounded-full border-2 border-rust-500 grayscale group-hover:grayscale-0 transition-all duration-500"
-                                />
-                                <div>
-                                    <h4 className="font-display text-xl text-forest-900 tracking-wider font-bold">
-                                        {review.name}
-                                    </h4>
-                                    <p className="text-rust-600 text-xs font-bold uppercase tracking-widest leading-none">
-                                        {review.role}
-                                    </p>
-                                </div>
+
+                            {/* mt-auto pushes this container to the bottom of the flex card */}
+                            <div className="mt-auto pt-6 border-t border-forest-100">
+                                <h4 className="font-display text-xl text-forest-900 tracking-wider font-bold">
+                                    {review.name}
+                                </h4>
+                                <p className="text-rust-600 text-xs font-bold uppercase tracking-widest leading-none mt-1">
+                                    {review.role}
+                                </p>
                             </div>
                         </div>
                     ))}
