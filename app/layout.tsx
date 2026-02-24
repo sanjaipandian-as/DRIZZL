@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue, Playfair_Display, Dancing_Script } from "next/font/google";
+import { Inter, Bebas_Neue, Playfair_Display, Dancing_Script,Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ContentProtection from "@/components/common/ContentProtection";
 import { siteConfig } from "@/lib/constants";
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-bodoni",
+  display: "swap",
+});
 
 const inter = Inter({
     subsets: ["latin"],
@@ -46,7 +54,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${inter.variable} ${bebasNeue.variable} ${playfair.variable} ${dancingScript.variable}`}>
+        <html lang="en" className={`${inter.variable} ${bebasNeue.variable} ${playfair.variable} ${dancingScript.variable} ${bodoni.variable}`}>
             <body className="font-sans flex flex-col min-h-screen">
                 <ContentProtection />
                 <Header />

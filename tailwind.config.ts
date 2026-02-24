@@ -67,6 +67,7 @@ const config: Config = {
                 display: ['var(--font-bebas)', 'sans-serif'],
                 serif: ['var(--font-playfair)', 'serif'],
                 script: ['var(--font-dancing)', 'cursive'],
+                luxury: ['var(--font-bodoni)', 'serif'],
             },
 
             keyframes: {
