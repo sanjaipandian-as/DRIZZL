@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 
 export default function ContactPage() {
@@ -45,19 +45,19 @@ export default function ContactPage() {
                 <motion.div style={{ y }} className="absolute inset-0">
                     <img
                         src="/DrizzlCafe1.jpeg"
-                        className="w-full h-full object-cover scale-110 opacity-60"
+                        className="w-full h-full object-cover scale-110 opacity-50"
                         alt="Drizzl Cafe Interior"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#FBF9F7] via-transparent to-transparent"></div>
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#FBF9F7] via-[#FBF9F7]/50 to-transparent opacity-90 h-40"></div>
-                    <div className="absolute inset-0 bg-white/5"></div>
+                    <div className="absolute inset-0 bg-[#FBF9F7]/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#FBF9F7] via-[#FBF9F7]/30 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#FBF9F7] via-[#FBF9F7]/60 to-transparent opacity-90 h-40"></div>
                 </motion.div>
 
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="relative z-10 text-center space-y-4 md:space-y-8 max-w-5xl mx-auto pt-40 pb-20"
+                    className="relative z-10 text-center space-y-4 md:space-y-8 max-w-5xl mx-auto pt-20 md:pt-24 pb-32 md:pb-40"
                 >
                     <motion.div variants={itemVariants} className="inline-flex items-center justify-center gap-4">
                         <span className="h-[1px] w-8 md:w-16 bg-gold-500"></span>
@@ -105,15 +105,15 @@ export default function ContactPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
-                            className="lg:col-span-7 bg-white/80 backdrop-blur-xl p-8 sm:p-12 md:p-16 rounded-[40px] md:rounded-[60px] shadow-2xl shadow-coffee-200/20 border border-white relative overflow-hidden group"
+                            className="lg:col-span-7 bg-white/80 backdrop-blur-xl p-8 sm:p-10 md:p-12 rounded-[40px] md:rounded-[60px] shadow-2xl shadow-coffee-200/20 border border-white relative overflow-hidden group"
                         >
                             {/* Decorative Corner */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-bl-[100px] transition-transform duration-700 group-hover:scale-110"></div>
 
-                            <form className="space-y-8 md:space-y-12 relative z-10">
+                            <form className="space-y-6 md:space-y-8 relative z-10">
                                 <div className="grid sm:grid-cols-2 gap-8 md:gap-12">
-                                    <InputGroup label="Your Name" placeholder="MARCUS DRIZZL" type="text" />
-                                    <InputGroup label="Email Address" placeholder="HELLO@DRIZZL.CAFE" type="email" />
+                                    <InputGroup label="Your Name" placeholder="" type="text" />
+                                    <InputGroup label="Email Address" placeholder="" type="email" />
                                 </div>
 
                                 <InputSelect
@@ -121,7 +121,7 @@ export default function ContactPage() {
                                     options={[
                                         "General Inquiry",
                                         "Catering & Events",
-                                        "Partnership Opportunity",
+                                        "Franchise Enquiry",
                                         "Career Inquiry"
                                     ]}
                                 />
@@ -129,9 +129,9 @@ export default function ContactPage() {
                                 <div className="space-y-3 group relative">
                                     <label className="text-[10px] font-bold text-coffee-400 uppercase tracking-[0.2em] group-focus-within:text-gold-600 transition-colors duration-300">Message</label>
                                     <textarea
-                                        rows={4}
-                                        placeholder="TELL US MORE ABOUT YOUR VISION..."
-                                        className="w-full bg-transparent border-b border-coffee-100 py-4 text-coffee-900 placeholder:text-coffee-200/50 focus:outline-none transition-all font-light text-base md:text-lg resize-none relative z-10"
+                                        rows={3}
+                                        placeholder="Tell us what's on your mind..."
+                                        className="w-full bg-transparent border-b border-coffee-100 py-3 text-coffee-900 placeholder:text-coffee-200/50 focus:outline-none transition-all font-light text-base md:text-lg resize-none relative z-10"
                                     ></textarea>
                                     <div className="absolute bottom-0 left-0 w-full h-[1px] bg-coffee-100"></div>
                                     <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold-500 transition-all duration-500 group-focus-within:w-full"></div>
@@ -140,7 +140,7 @@ export default function ContactPage() {
                                 <motion.button
                                     whileHover={{ scale: 1.01, backgroundColor: "#1A120B" }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="w-full py-5 md:py-6 bg-coffee-900 text-white font-bold tracking-[0.4em] uppercase rounded-full transition-all shadow-xl shadow-coffee-900/10 flex items-center justify-center gap-3 overflow-hidden group/btn"
+                                    className="w-full py-4 md:py-5 bg-coffee-900 text-white font-bold tracking-[0.4em] uppercase rounded-full transition-all shadow-xl shadow-coffee-900/10 flex items-center justify-center gap-3 overflow-hidden group/btn"
                                 >
                                     <span>Send Inquiry</span>
                                     <motion.span
@@ -167,12 +167,12 @@ export default function ContactPage() {
                                 className="space-y-12 md:space-y-16"
                             >
                                 <motion.div variants={itemVariants} className="space-y-6">
-                                    <h2 className="text-gold-600 font-bold tracking-[0.4em] uppercase text-xs">Headquarters</h2>
+                                    <h2 className="text-gold-600 font-bold tracking-[0.4em] uppercase text-xs">Our Address</h2>
                                     <div className="space-y-4">
-                                        <h3 className="font-display text-4xl sm:text-5xl uppercase tracking-tighter text-coffee-900">Auckland Central</h3>
+                                        <h3 className="font-display text-4xl sm:text-5xl uppercase tracking-tighter text-coffee-900">The Marina Mall</h3>
                                         <p className="text-coffee-600 text-lg md:text-xl font-light leading-relaxed italic">
-                                            123 Coffee Street, Brewery District <br />
-                                            Auckland 1010, New Zealand
+                                            First Floor, The Marina Mall, Rajiv Gandhi Salai <br />
+                                            Egattur, Chennai, Tamil Nadu 603103
                                         </p>
                                     </div>
                                 </motion.div>
@@ -180,11 +180,11 @@ export default function ContactPage() {
                                 <div className="grid sm:grid-cols-2 gap-8 md:gap-10 border-t border-coffee-100/50 pt-10 md:pt-12">
                                     <motion.div variants={itemVariants} className="space-y-4">
                                         <h4 className="text-gold-600 text-[10px] font-bold tracking-[0.4em] uppercase">Call Us</h4>
-                                        <a href="tel:+6491234567" className="block text-coffee-900 text-lg font-bold tracking-wider hover:text-gold-600 transition-colors">+64 9 123 4567</a>
+                                        <a href="tel:+916383298748" className="block text-coffee-900 text-lg font-bold tracking-wider hover:text-gold-600 transition-colors">+91 63832 98748</a>
                                     </motion.div>
                                     <motion.div variants={itemVariants} className="space-y-4">
                                         <h4 className="text-gold-600 text-[10px] font-bold tracking-[0.4em] uppercase">Email</h4>
-                                        <a href="mailto:hello@drizzl.cafe" className="block text-coffee-900 text-lg font-bold tracking-wider hover:text-gold-600 transition-colors">hello@drizzl.cafe</a>
+                                        <a href="mailto:drizzlcafe@gmail.com" className="block text-coffee-900 text-lg font-bold tracking-wider hover:text-gold-600 transition-colors">drizzlcafe@gmail.com</a>
                                     </motion.div>
                                 </div>
 
@@ -192,41 +192,62 @@ export default function ContactPage() {
                                     <h4 className="text-gold-600 text-[10px] font-bold tracking-[0.4em] uppercase">Hours of Operation</h4>
                                     <div className="space-y-5 font-light text-coffee-500">
                                         <div className="flex justify-between items-center group">
-                                            <span className="group-hover:text-gold-600 transition-colors">Weekdays</span>
+                                            <span className="group-hover:text-gold-600 transition-colors">All Days</span>
                                             <span className="h-[1px] flex-1 mx-4 bg-coffee-100/50 group-hover:bg-gold-500/20 transition-colors"></span>
-                                            <span className="text-coffee-900 font-bold">07:00 — 20:00</span>
-                                        </div>
-                                        <div className="flex justify-between items-center group">
-                                            <span className="group-hover:text-gold-600 transition-colors">Weekends</span>
-                                            <span className="h-[1px] flex-1 mx-4 bg-coffee-100/50 group-hover:bg-gold-500/20 transition-colors"></span>
-                                            <span className="text-coffee-900 font-bold">09:00 — 22:00</span>
+                                            <span className="text-coffee-900 font-bold">10:00 AM — 10:30 PM</span>
                                         </div>
                                     </div>
                                 </motion.div>
                             </motion.div>
-
-                            {/* Minimalist Map / Visual */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.4 }}
-                                className="mt-12 md:mt-16 relative aspect-video md:aspect-square lg:aspect-video rounded-[32px] md:rounded-[40px] overflow-hidden group border-8 border-white shadow-2xl shadow-coffee-200/20"
-                            >
-                                <img
-                                    src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1974&auto=format&fit=crop"
-                                    className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 grayscale group-hover:grayscale-0"
-                                    alt="Urban location"
-                                />
-                                <div className="absolute inset-0 bg-gold-500/10 group-hover:bg-transparent transition-all"></div>
-                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <div className="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center animate-ping opacity-75"></div>
-                                    <div className="absolute w-4 h-4 bg-gold-500 rounded-full shadow-2xl border-2 border-white"></div>
-                                </div>
-                            </motion.div>
                         </div>
                     </div>
                 </div>
+
+                {/* Google Maps Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="container mx-auto px-4 sm:px-6 lg:px-20 mt-16 md:mt-24"
+                >
+                    <div className="text-center mb-8">
+                        <h2 className="text-gold-600 font-bold tracking-[0.4em] uppercase text-xs mb-3">Find Us Here</h2>
+                        <p className="text-coffee-500 font-light text-base">Tap the map to get directions to our café</p>
+                    </div>
+                    <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=DRIZZL+CAFE,+The+Marina+Mall,+Rajiv+Gandhi+Salai,+Egattur,+Chennai,+Tamil+Nadu+603103"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block relative rounded-[32px] md:rounded-[40px] overflow-hidden border-4 border-white shadow-2xl shadow-coffee-200/20 group cursor-pointer"
+                    >
+                        <div className="relative aspect-[16/9] md:aspect-[21/9]">
+                            <iframe
+                                src="https://www.google.com/maps?q=DRIZZL+CAFE,+The+Marina+Mall,+Rajiv+Gandhi+Salai,+Egattur,+Chennai,+Tamil+Nadu+603103&output=embed"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="absolute inset-0 w-full h-full pointer-events-none"
+                            ></iframe>
+                            {/* Clickable overlay */}
+                            <div className="absolute inset-0 bg-transparent group-hover:bg-gold-500/5 transition-all duration-500 z-10"></div>
+                        </div>
+                        {/* Direction CTA */}
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 bg-coffee-900/90 backdrop-blur-md text-white px-6 py-3 rounded-full flex items-center gap-3 shadow-xl group-hover:bg-coffee-900 transition-all duration-300 group-hover:scale-105">
+                            <svg className="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span className="text-sm font-bold tracking-[0.2em] uppercase">Get Directions</span>
+                            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </a>
+                </motion.div>
             </section>
 
             {/* 4. FOOTER CALLOUT LIGHT */}
@@ -240,21 +261,22 @@ export default function ContactPage() {
                     >
                         STAY <span className="text-gold-500 italic">CONNECTED</span>
                     </motion.h2>
-                    <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-                        {['Instagram', 'LinkedIn', 'Twitter', 'Facebook'].map((social, index) => (
-                            <motion.a
-                                key={social}
-                                href="#"
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="text-coffee-400 hover:text-gold-600 font-bold tracking-[0.3em] md:tracking-[0.5em] text-[9px] md:text-[10px] uppercase transition-all duration-300 hover:tracking-[0.6em]"
-                            >
-                                {social}
-                            </motion.a>
-                        ))}
-                    </div>
+                    <motion.a
+                        href="https://www.instagram.com/drizzlcafe?igsh=MXdhZ3M2NmNucGg1NQ=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="inline-flex items-center gap-4 text-coffee-400 hover:text-gold-600 font-bold tracking-[0.4em] text-xs uppercase transition-all duration-500 group"
+                    >
+                        <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                        <span>Follow us on Instagram</span>
+                        <span className="h-[1px] w-0 bg-gold-500 transition-all duration-500 group-hover:w-8"></span>
+                    </motion.a>
                 </div>
                 {/* Decorative Pattern */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -284,23 +306,66 @@ function InputGroup({ label, type, placeholder }: { label: string, type: string,
 }
 
 function InputSelect({ label, options }: { label: string, options: string[] }) {
-    const id = label.toLowerCase().replace(/\s+/g, '-');
+    const [isOpen, setIsOpen] = useState(false);
+    const [selected, setSelected] = useState(options[0]);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
     return (
-        <div className="space-y-3 group relative">
-            <label htmlFor={id} className="text-[10px] font-bold text-coffee-400 uppercase tracking-[0.2em] group-focus-within:text-gold-600 transition-colors duration-300">{label}</label>
+        <div className="space-y-3 relative" ref={dropdownRef}>
+            <label className="text-[10px] font-bold text-coffee-400 uppercase tracking-[0.2em]">{label}</label>
             <div className="relative">
-                <select id={id} className="w-full bg-transparent border-b border-coffee-100 py-4 text-coffee-900 appearance-none focus:outline-none transition-all font-light text-base md:text-lg relative z-10 cursor-pointer">
-                    {options.map(opt => <option key={opt}>{opt}</option>)}
-                </select>
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-gold-500 group-hover:translate-x-1 transition-transform">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {/* Trigger */}
+                <button
+                    type="button"
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="w-full bg-transparent border-b border-coffee-100 py-3 text-coffee-900 text-left focus:outline-none transition-all font-light text-base md:text-lg cursor-pointer flex items-center justify-between"
+                >
+                    <span>{selected}</span>
+                    <svg
+                        className={`w-4 h-4 text-gold-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
-                </div>
+                </button>
+
                 {/* Animated Bottom Border */}
                 <div className="absolute bottom-0 left-0 w-full h-[1px] bg-coffee-100"></div>
-                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold-500 transition-all duration-500 group-focus-within:w-full"></div>
+                <div className={`absolute bottom-0 left-0 h-[1.5px] bg-gold-500 transition-all duration-500 ${isOpen ? 'w-full' : 'w-0'}`}></div>
+
+                {/* Custom Dropdown Menu */}
+                {isOpen && (
+                    <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl shadow-coffee-200/30 border border-coffee-50 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                        {options.map((opt, i) => (
+                            <button
+                                key={opt}
+                                type="button"
+                                onClick={() => {
+                                    setSelected(opt);
+                                    setIsOpen(false);
+                                }}
+                                className={`w-full text-left px-5 py-3.5 text-sm md:text-base font-light transition-all duration-200 flex items-center gap-3 ${selected === opt
+                                    ? 'bg-gold-500/10 text-gold-700 font-medium'
+                                    : 'text-coffee-700 hover:bg-coffee-50 hover:text-coffee-900'
+                                    } ${i !== options.length - 1 ? 'border-b border-coffee-50' : ''}`}
+                            >
+                                <span className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${selected === opt ? 'bg-gold-500 scale-100' : 'bg-transparent scale-0'}`}></span>
+                                {opt}
+                            </button>
+                        ))}
+                    </div>
+                )}
             </div>
+
+            {/* Click outside to close */}
+            {isOpen && (
+                <div
+                    className="fixed inset-0 z-40"
+                    onClick={() => setIsOpen(false)}
+                />
+            )}
         </div>
     );
 }

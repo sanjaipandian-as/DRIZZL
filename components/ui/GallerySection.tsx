@@ -38,11 +38,11 @@ export default function GallerySection() {
                             Capture the Moment
                         </h2>
                         <h3 className="font-display text-5xl md:text-7xl text-forest-900 leading-tight">
-                            VISUAL <span className="text-rust-600">JOURNEY</span>
+                            Step Inside <span className="text-rust-600">Drizzl Café</span>
                         </h3>
                     </div>
                     <p className="text-forest-700 text-lg max-w-sm mb-2 font-light">
-                        Step into our world through the lens. Every corner, every bean, every smile captured for eternity.
+                        A comfortable, welcoming space designed for relaxing moments — whether you're meeting friends, enjoying coffee, or taking a break while shopping at Marina Mall.
                     </p>
                 </div>
 
