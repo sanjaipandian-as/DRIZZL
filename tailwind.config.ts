@@ -68,6 +68,8 @@ const config: Config = {
                 serif: ['var(--font-playfair)', 'serif'],
                 script: ['var(--font-dancing)', 'cursive'],
                 luxury: ['var(--font-bodoni)', 'serif'],
+                avant: ['var(--font-syne)', 'sans-serif'],
+                royal: ['var(--font-cormorant)', 'serif'],
             },
 
             keyframes: {

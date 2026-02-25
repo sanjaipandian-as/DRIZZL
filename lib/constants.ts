@@ -1,6 +1,6 @@
 export const siteConfig = {
   brand: {
-    name: "Drizzl Cafe",
+    name: "Drizzl Café",
     tagline: "Organic Blends & Artisanal Bakes",
     logoText: "DRIZZL",
   },
@@ -11,14 +11,11 @@ export const siteConfig = {
     mapLink: "https://maps.google.com/?q=Drizzl+Cafe",
   },
   socials: {
-    instagram: "https://instagram.com/drizzlcafe",
-    facebook: "https://facebook.com/drizzlcafe",
-    twitter: "https://twitter.com/drizzlcafe",
-    linkedin: "https://linkedin.com/company/drizzlcafe",
+    instagram: "https://www.instagram.com/drizzlcafe?igsh=MXdhZ3M2NmNucGg1NQ==",
   },
   nav: [
     { name: "Home", href: "/" },
-    { name: "Menu", href: "/menu" },
+    { name: "Products", href: "/products" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ],

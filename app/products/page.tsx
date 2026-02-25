@@ -120,7 +120,7 @@ export default function ProductsPage() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="lg:w-96 lg:h-[calc(100vh-6rem)] lg:sticky lg:top-24 pt-8 md:pt-20 pb-6 md:pb-12 px-4 md:px-12 flex flex-col justify-between lg:border-r border-gold-500/10 bg-cream-50/30 backdrop-blur-sm"
+                    className="lg:w-96 lg:h-[calc(100vh-6rem)] lg:sticky lg:top-24 pt-4 md:pt-6 pb-6 md:pb-12 px-4 md:px-12 flex flex-col justify-between lg:border-r border-gold-500/10 bg-cream-50/30 backdrop-blur-sm"
                 >
                     <div className="space-y-8 md:space-y-16">
                         <motion.div
@@ -208,7 +208,7 @@ export default function ProductsPage() {
                 </motion.aside>
 
                 {/* Main Content Area */}
-                <div className="flex-1 pt-8 md:pt-20 px-4 md:px-8 lg:px-24 pb-20 md:pb-40">
+                <div className="flex-1 pt-20 md:pt-24 px-4 md:px-8 lg:px-24 pb-20 md:pb-40">
                     {/* Hero Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -244,6 +244,7 @@ export default function ProductsPage() {
                                         ease: [0.25, 0.1, 0.25, 1]
                                     }}
                                     className="group relative space-y-6 md:space-y-10"
+                                    id={`product-${product.id}`}
                                 >
                                     {/* Product Image */}
                                     <div className="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden bg-cream-50 shadow-sm rounded-lg md:rounded-none">
@@ -274,12 +275,10 @@ export default function ProductsPage() {
 
                                     {/* Product Details */}
                                     <div className="space-y-4 md:space-y-6">
-                                        <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-3 md:gap-6">
+                                        <div className="flex flex-col gap-3">
                                             <h3 className="font-serif text-2xl md:text-4xl tracking-tight leading-none text-coffee-900 group-hover:text-gold-500 transition-colors duration-500 uppercase">
                                                 {product.name}
                                             </h3>
-                                            <div className="hidden md:block h-[1px] flex-1 bg-gold-500/10"></div>
-                                            <span className="text-base md:text-lg font-bold text-coffee-900 tracking-widest shrink-0">{product.price}</span>
                                         </div>
 
                                         <div className="flex flex-wrap gap-2 md:gap-3">
@@ -369,7 +368,6 @@ export default function ProductsPage() {
                                 <div className="space-y-4">
                                     <span className="text-gold-500 text-xs font-bold tracking-[0.4em] uppercase">{selectedProduct.category}</span>
                                     <h2 className="font-serif text-4xl md:text-5xl text-coffee-900 leading-[0.9]">{selectedProduct.name}</h2>
-                                    <p className="text-2xl font-bold text-coffee-900/80">{selectedProduct.price}</p>
                                 </div>
 
                                 <p className="text-coffee-900/60 text-lg leading-relaxed">{selectedProduct.description}</p>
