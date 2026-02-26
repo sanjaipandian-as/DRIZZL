@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Star, MapPin } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import Image from 'next/image';
 
 // --- Typed Count Up Component ---
 const Counter = ({ from, to, suffix = "" }: { from: number; to: number; suffix?: string }) => {
@@ -25,9 +26,11 @@ const LandingPage = () => {
 
             {/* Mobile Background Image */}
             <div className="absolute inset-0 z-0 lg:hidden">
-                <img
+                <Image
                     src="/imagebg2.png"
-                    className="w-full h-full object-cover"
+                    fill
+                    priority
+                    className="object-cover"
                     alt="Coffee Background"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#FDFBF7]/95 via-[#FDFBF7]/85 to-[#FDFBF7]/95"></div>
@@ -173,9 +176,11 @@ const LandingPage = () => {
                             className="absolute w-[600px] h-[750px] z-10"
                         >
                             <div className="relative w-full h-full overflow-hidden">
-                                <img
+                                <Image
                                     src="/imagebg2.png"
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    priority
+                                    className="object-cover"
                                     alt="Coffee Experience"
                                 />
                             </div>

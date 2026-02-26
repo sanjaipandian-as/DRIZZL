@@ -1,6 +1,7 @@
 'use client';
 
 import Button from './Button';
+import Image from 'next/image';
 
 interface ProductCardProps {
     name: string;
@@ -16,10 +17,11 @@ export default function ProductCard({ name, price, description, image, category 
             {/* Image Container - Top Down Circle */}
             <div className="relative -mt-20 mb-8 flex justify-center">
                 <div className="w-56 h-56 rounded-full overflow-hidden shadow-2xl border-8 border-cream-50 group-hover:scale-105 transition-transform duration-700">
-                    <img
+                    <Image
                         src={image}
                         alt={name}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                     />
                 </div>
             </div>
