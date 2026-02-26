@@ -1,23 +1,25 @@
 'use client';
 
+import Image from 'next/image';
+
 const GALLERY_IMAGES = [
     {
-        url: "/Drizzl3Cafe3.jpeg",
+        url: "/Drizzl3Cafe3.avif",
         title: "Artisan Brew",
         size: "large"
     },
     {
-        url: "/Drizzle6.png",
+        url: "/Drizzle6.avif",
         title: "Atmosphere",
         size: "small"
     },
     {
-        url: "/DrizzlCafe5.jpeg",
+        url: "/DrizzlCafe5.avif",
         title: "Fresh Beans",
         size: "small"
     },
     {
-        url: "/Drizzle4.png",
+        url: "/Drizzle4.avif",
         title: "Espresso Art",
         size: "medium"
     },
@@ -49,10 +51,11 @@ export default function GallerySection() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px] md:h-[800px]">
                     {/* Large Image */}
                     <div className="col-span-2 row-span-2 relative group overflow-hidden rounded-sm">
-                        <img
+                        <Image
                             src={GALLERY_IMAGES[0].url}
                             alt={GALLERY_IMAGES[0].title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                             <span className="text-cream-50 font-display text-3xl tracking-widest uppercase">{GALLERY_IMAGES[0].title}</span>
@@ -61,10 +64,11 @@ export default function GallerySection() {
 
                     {/* Smaller Images */}
                     <div className="relative group overflow-hidden rounded-sm">
-                        <img
+                        <Image
                             src={GALLERY_IMAGES[1].url}
                             alt={GALLERY_IMAGES[1].title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                             <span className="text-cream-50 font-display text-xl tracking-widest uppercase">{GALLERY_IMAGES[1].title}</span>
@@ -72,10 +76,11 @@ export default function GallerySection() {
                     </div>
 
                     <div className="relative group overflow-hidden rounded-sm">
-                        <img
+                        <Image
                             src={GALLERY_IMAGES[2].url}
                             alt={GALLERY_IMAGES[2].title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                             <span className="text-cream-50 font-display text-xl tracking-widest uppercase">{GALLERY_IMAGES[2].title}</span>
@@ -83,10 +88,11 @@ export default function GallerySection() {
                     </div>
 
                     <div className="col-span-2 relative group overflow-hidden rounded-sm">
-                        <img
+                        <Image
                             src={GALLERY_IMAGES[3].url}
                             alt={GALLERY_IMAGES[3].title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                             <span className="text-cream-50 font-display text-2xl tracking-widest uppercase">{GALLERY_IMAGES[3].title}</span>

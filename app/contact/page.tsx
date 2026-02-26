@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 export default function ContactPage() {
     const containerRef = useRef(null);
@@ -43,9 +44,10 @@ export default function ContactPage() {
             {/* 1. CINEMATIC LIGHT HERO */}
             <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-cream-100 px-4">
                 <motion.div style={{ y }} className="absolute inset-0">
-                    <img
-                        src="/DrizzlCafe1.jpeg"
-                        className="w-full h-full object-cover scale-110 opacity-50"
+                    <Image
+                        src="/DrizzlCafe1.avif"
+                        fill
+                        className="object-cover scale-110 opacity-50"
                         alt="Drizzl Cafe Interior"
                     />
                     <div className="absolute inset-0 bg-[#FBF9F7]/40"></div>

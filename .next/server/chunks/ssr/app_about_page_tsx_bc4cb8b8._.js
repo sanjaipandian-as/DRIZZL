@@ -20,7 +20,7 @@ const PROCESS_STEPS = [
         number: "01",
         title: "Sourcing",
         text: "Direct trade with micro-lot farmers worldwide, selecting only the top 1% of Arabica beans.",
-        img: "/drizzle2.png",
+        img: "/drizzle2.avif",
         video: "/sourcing.mp4",
         videoTitle: "Origin Journey",
         videoSub: "Direct Trade"
@@ -29,7 +29,7 @@ const PROCESS_STEPS = [
         number: "02",
         title: "Roasting",
         text: "Small-batch roasting from estates in Kodagu and Chikmagalur, preserving integrity and highlighting unique flavor notes.",
-        img: "/Drizzl3Cafe3.jpeg",
+        img: "/Drizzl3Cafe3.avif",
         video: "/downloadfilevd.mp4",
         videoTitle: "Artisan Roast",
         videoSub: "Daily Batch"
