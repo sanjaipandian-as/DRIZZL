@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const GALLERY_IMAGES = [
     {
         url: "/Drizzl3Cafe3.jpeg",
@@ -34,10 +36,8 @@ export default function GallerySection() {
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <div className="max-w-xl space-y-4">
-                        <h2 className="text-rust-600 font-bold tracking-[0.3em] uppercase text-sm">
-                            Capture the Moment
-                        </h2>
-                        <h3 className="font-display text-5xl md:text-7xl text-forest-900 leading-tight">
+
+                        <h3 className="font-display text-6xl md:text-7xl text-forest-900 leading-tight">
                             Step Inside <span className="text-rust-600">Drizzl Café</span>
                         </h3>
                     </div>
@@ -49,10 +49,12 @@ export default function GallerySection() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px] md:h-[800px]">
                     {/* Large Image */}
                     <div className="col-span-2 row-span-2 relative group overflow-hidden rounded-sm">
-                        <img
+                        <Image
                             src={GALLERY_IMAGES[0].url}
                             alt={GALLERY_IMAGES[0].title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                             <span className="text-cream-50 font-display text-3xl tracking-widest uppercase">{GALLERY_IMAGES[0].title}</span>
@@ -61,10 +63,12 @@ export default function GallerySection() {
 
                     {/* Smaller Images */}
                     <div className="relative group overflow-hidden rounded-sm">
-                        <img
+                        <Image
                             src={GALLERY_IMAGES[1].url}
                             alt={GALLERY_IMAGES[1].title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                            fill
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                             <span className="text-cream-50 font-display text-xl tracking-widest uppercase">{GALLERY_IMAGES[1].title}</span>
@@ -72,10 +76,12 @@ export default function GallerySection() {
                     </div>
 
                     <div className="relative group overflow-hidden rounded-sm">
-                        <img
+                        <Image
                             src={GALLERY_IMAGES[2].url}
                             alt={GALLERY_IMAGES[2].title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                            fill
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                             <span className="text-cream-50 font-display text-xl tracking-widest uppercase">{GALLERY_IMAGES[2].title}</span>
@@ -83,10 +89,12 @@ export default function GallerySection() {
                     </div>
 
                     <div className="col-span-2 relative group overflow-hidden rounded-sm">
-                        <img
+                        <Image
                             src={GALLERY_IMAGES[3].url}
                             alt={GALLERY_IMAGES[3].title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                             <span className="text-cream-50 font-display text-2xl tracking-widest uppercase">{GALLERY_IMAGES[3].title}</span>

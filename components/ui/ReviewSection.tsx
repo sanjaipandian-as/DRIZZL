@@ -28,9 +28,7 @@ export default function ReviewSection() {
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                    <h2 className="text-rust-600 font-bold tracking-widest uppercase text-sm">
-                        Customer Feedback
-                    </h2>
+
                     <h3 className="font-display text-5xl md:text-7xl text-forest-900 leading-tight">
                         WHAT THEY <span className="text-rust-600">SAY</span>
                     </h3>
@@ -46,7 +44,7 @@ export default function ReviewSection() {
                                     </svg>
                                 ))}
                             </div>
-                            
+
                             <p className="text-forest-700 italic text-lg leading-relaxed mb-8 font-light">
                                 "{review.text}"
                             </p>

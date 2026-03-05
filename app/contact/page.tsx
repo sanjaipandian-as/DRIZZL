@@ -57,16 +57,12 @@ export default function ContactPage() {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="relative z-10 text-center space-y-4 md:space-y-8 max-w-5xl mx-auto pt-20 md:pt-24 pb-32 md:pb-40"
+                    className="relative z-10 text-center space-y-4 md:space-y-8 max-w-5xl mx-auto pt-28 md:pt-36 lg:pt-40 pb-32 md:pb-40"
                 >
-                    <motion.div variants={itemVariants} className="inline-flex items-center justify-center gap-4">
-                        <span className="h-[1px] w-8 md:w-16 bg-gold-500"></span>
-                        <span className="text-gold-600 text-[10px] md:text-xs font-bold tracking-[0.4em] md:tracking-[0.6em] uppercase">Connect With Us</span>
-                        <span className="h-[1px] w-8 md:w-16 bg-gold-500"></span>
-                    </motion.div>
+
 
                     <motion.h1
-                        className="font-display text-5xl sm:text-7xl md:text-[9vw] lg:text-[10vw] leading-[0.85] md:leading-[0.8] uppercase tracking-tighter text-coffee-900"
+                        className="font-display text-4xl sm:text-6xl md:text-[8vw] lg:text-[10vw] leading-[0.9] md:leading-[0.8] uppercase tracking-tighter text-coffee-900 px-2"
                     >
                         <motion.span variants={itemVariants} className="block">START THE</motion.span>
                         <motion.span
@@ -95,9 +91,9 @@ export default function ContactPage() {
                 </motion.div>
             </section>
 
-            <section className="relative z-20 pb-20 md:pb-40 -mt-20 md:-mt-32">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-20">
-                    <div className="grid lg:grid-cols-12 gap-8 md:gap-16 lg:gap-24">
+            <section className="relative z-20 pb-20 md:pb-32 -mt-10 md:-mt-24 lg:-mt-32">
+                <div className="container mx-auto px-4 sm:px-8 lg:px-20">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
 
                         {/* 2. THE BOUTIQUE LIGHT FORM */}
                         <motion.div
@@ -105,7 +101,7 @@ export default function ContactPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, type: "spring", bounce: 0.2 }}
-                            className="lg:col-span-7 bg-white/80 backdrop-blur-xl p-8 sm:p-10 md:p-12 rounded-[40px] md:rounded-[60px] shadow-2xl shadow-coffee-200/20 border border-white relative overflow-hidden group"
+                            className="lg:col-span-12 xl:col-span-7 bg-white/80 backdrop-blur-xl p-6 sm:p-10 md:p-14 pb-12 sm:pb-14 md:pb-16 rounded-[30px] sm:rounded-[40px] md:rounded-[60px] shadow-2xl shadow-coffee-200/20 border border-white relative overflow-hidden group"
                         >
                             {/* Decorative Corner */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-bl-[100px] transition-transform duration-700 group-hover:scale-110"></div>
@@ -138,11 +134,11 @@ export default function ContactPage() {
                                 </div>
 
                                 <motion.button
-                                    whileHover={{ scale: 1.01, backgroundColor: "#1A120B" }}
+                                    whileHover={{ scale: 1.01, backgroundColor: "#142d27" }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="w-full py-4 md:py-5 bg-coffee-900 text-white font-bold tracking-[0.4em] uppercase rounded-full transition-all shadow-xl shadow-coffee-900/10 flex items-center justify-center gap-3 overflow-hidden group/btn"
+                                    className="w-full py-4 md:py-5 bg-coffee-900 text-white font-bold tracking-[0.2em] md:tracking-[0.4em] text-[10px] md:text-xs uppercase rounded-full transition-all shadow-xl shadow-coffee-900/10 flex items-center justify-center gap-3 overflow-hidden group/btn"
                                 >
-                                    <span>Send Inquiry</span>
+                                    <span className="relative z-10">Send Inquiry</span>
                                     <motion.span
                                         initial={{ x: -10, opacity: 0 }}
                                         whileHover={{ x: 0, opacity: 1 }}
@@ -155,7 +151,7 @@ export default function ContactPage() {
                         </motion.div>
 
                         {/* 3. CONTACT INTELLIGENCE - LIGHT MODE */}
-                        <div className="lg:col-span-5 flex flex-col justify-between py-6 md:py-10">
+                        <div className="lg:col-span-12 xl:col-span-5 flex flex-col justify-between py-10 lg:py-0">
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
@@ -167,9 +163,9 @@ export default function ContactPage() {
                                 className="space-y-12 md:space-y-16"
                             >
                                 <motion.div variants={itemVariants} className="space-y-6">
-                                    <h2 className="text-gold-600 font-bold tracking-[0.4em] uppercase text-xs">Our Address</h2>
+                                    <h2 className="text-gold-600 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs">Our Address</h2>
                                     <div className="space-y-4">
-                                        <h3 className="font-display text-4xl sm:text-5xl uppercase tracking-tighter text-coffee-900">The Marina Mall</h3>
+                                        <h3 className="font-display text-3xl sm:text-5xl uppercase tracking-tighter text-coffee-900">The Marina Mall</h3>
                                         <p className="text-coffee-600 text-lg md:text-xl font-light leading-relaxed italic">
                                             First Floor, The Marina Mall, Rajiv Gandhi Salai <br />
                                             Egattur, Chennai, Tamil Nadu 603103
@@ -236,13 +232,13 @@ export default function ContactPage() {
                             <div className="absolute inset-0 bg-transparent group-hover:bg-gold-500/5 transition-all duration-500 z-10"></div>
                         </div>
                         {/* Direction CTA */}
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 bg-coffee-900/90 backdrop-blur-md text-white px-6 py-3 rounded-full flex items-center gap-3 shadow-xl group-hover:bg-coffee-900 transition-all duration-300 group-hover:scale-105">
-                            <svg className="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 bg-coffee-900/95 backdrop-blur-md text-white px-4 py-2.5 sm:px-6 sm:py-3 rounded-full flex items-center gap-2 sm:gap-3 shadow-xl group-hover:bg-coffee-900 transition-all duration-300 group-hover:scale-105 whitespace-nowrap">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span className="text-sm font-bold tracking-[0.2em] uppercase">Get Directions</span>
-                            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <span className="text-[10px] sm:text-sm font-bold tracking-[0.2em] uppercase">Get Directions</span>
+                            <svg className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
@@ -257,7 +253,7 @@ export default function ContactPage() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="font-display text-4xl sm:text-6xl md:text-8xl uppercase tracking-tighter text-coffee-900"
+                        className="font-display text-3xl sm:text-5xl md:text-8xl uppercase tracking-tighter text-coffee-900"
                     >
                         STAY <span className="text-gold-500 italic">CONNECTED</span>
                     </motion.h2>

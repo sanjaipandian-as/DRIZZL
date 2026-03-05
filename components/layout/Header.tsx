@@ -282,13 +282,13 @@ export default function Header() {
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setIsMenuOpen(false)}
-                                                className={`text-4xl font-royal font-light tracking-[0.1em] uppercase flex items-center justify-between group transition-colors duration-300 ${isActive ? 'text-black' : 'text-black/30 hover:text-black/70'}`}
+                                                className={`text-4xl font-royal font-light tracking-[0.1em] uppercase flex items-center justify-between group transition-colors duration-300 ${isActive ? 'text-black' : 'text-black/40 hover:text-black/70'}`}
                                             >
                                                 <span>{link.name}</span>
                                                 {isActive && (
                                                     <motion.span
                                                         layoutId="mobile-active"
-                                                        className="w-2 h-2 rounded-full bg-gold-500"
+                                                        className="w-2 h-2 rounded-full bg-black"
                                                     />
                                                 )}
                                             </Link>

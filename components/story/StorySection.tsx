@@ -64,21 +64,21 @@ export default function StorySection() {
 
                         <p>
                             Drizzl Café is a premium yet welcoming space designed for everyday moments — whether
-you're grabbing a quick coffee, catching up with friends, or taking a relaxing break at Marina
-Mall.
+                            you're grabbing a quick coffee, catching up with friends, or taking a relaxing break at Marina
+                            Mall.
                         </p>
 
                         <p>
                             We believe great coffee, delicious food, and a comfortable ambience should be accessible to
-everyone.
+                            everyone.
                         </p>
                         <p>
                             From freshly brewed beverages to mouth-watering snacks, everything we serve is crafted to
-deliver quality, consistency, and value.
+                            deliver quality, consistency, and value.
                         </p>
 
                         <p className="font-bold text-[#D97246] uppercase">
-                            At 
+                            At
                             <span className="font-script text-[#D97246] text-2xl md:text-3xl lg:text-4xl capitalize">Drizzl Cafe</span>, every visit feels warm, refreshing, and worth coming back to.
                         </p>
                     </div>
@@ -93,10 +93,12 @@ deliver quality, consistency, and value.
                 </div>
 
                 <div className="w-full md:w-1/2 relative min-h-[500px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden group">
-                    <img
+                    <Image
                         src="/DrizzlCafe1.jpeg"
                         alt="Drizzl Cafe Interior"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     {/* Subtle overlay for depth */}
                     <div className="absolute inset-0 bg-gradient-to-t from-coffee-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

@@ -89,7 +89,6 @@ function VideoCard({ src, title, sub }: { src: string, title?: string, sub?: str
 
 export default function AboutPage() {
     const [isLoaded, setIsLoaded] = useState(false);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const heroRef = useRef<HTMLElement>(null);
 
     const [mounted, setMounted] = useState(false);
@@ -97,18 +96,6 @@ export default function AboutPage() {
     useEffect(() => {
         setMounted(true);
         setIsLoaded(true);
-
-        const handleMouseMove = (e: MouseEvent) => {
-            if (heroRef.current && window.innerWidth > 1024) {
-                const { left, top, width, height } = heroRef.current.getBoundingClientRect();
-                const x = (e.clientX - left) / width - 0.5;
-                const y = (e.clientY - top) / height - 0.5;
-                setMousePosition({ x, y });
-            }
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     return (
@@ -117,16 +104,12 @@ export default function AboutPage() {
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
             </div>
 
-            <section ref={heroRef} className="relative pt-20 lg:pt-24 pb-4 px-4 md:px-6 flex flex-col justify-center overflow-hidden lg:perspective-1000">
+            <section ref={heroRef} className="relative pt-24 md:pt-32 lg:pt-36 pb-4 px-4 md:px-6 flex flex-col justify-center overflow-hidden lg:perspective-1000">
 
 
                 <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
                     <div className="lg:col-span-6 space-y-6 md:space-y-8 lg:space-y-12 order-1 text-center lg:text-left">
                         <div className={`transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                            <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-6">
-                                <span className="h-[2px] w-8 md:w-12 bg-gold-500"></span>
-                                <span className="text-gold-500 text-[10px] md:text-xs font-bold tracking-[0.4em] md:tracking-[0.6em] uppercase">The Origin Story</span>
-                            </div>
                             <h1 className="font-serif text-[18vw] md:text-[12vw] lg:text-[9rem] leading-[0.85] tracking-tight text-black drop-shadow-sm">
                                 BEYOND <br />
                                 <span className="italic font-light lg:ml-8 text-black">GRAVITY.</span>
@@ -137,14 +120,10 @@ export default function AboutPage() {
                         </div>
 
                         <div className={`flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-4 md:pt-8 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                            <button className="w-full sm:w-auto bg-coffee-900 text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase hover:bg-gold-500 hover:text-coffee-900 transition-all shadow-xl">
+                            <button className="w-full sm:w-auto bg-coffee-900 text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase hover:bg-gold-500 hover:text-coffee-900 transition-all">
                                 Discover More
                             </button>
-                            <div className="flex -space-x-3 md:-space-x-4">
-                                {[1, 2, 3].map(i => (
-                                    <div key={i} className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white bg-gray-200"></div>
-                                ))}
-                            </div>
+
                         </div>
                     </div>
 
@@ -158,10 +137,6 @@ export default function AboutPage() {
                             {/* Main Arch Image */}
                             <motion.div
                                 className={`relative w-full lg:w-[95%] h-full rounded-t-full overflow-hidden shadow-[0_60px_120px_-20px_rgba(0,0,0,0.35)] border-[12px] border-white transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 scale-95'}`}
-                                style={{
-                                    transform: mounted && window.innerWidth > 1024 ? `perspective(1000px) rotateY(${mousePosition.x * 4}deg) rotateX(${mousePosition.y * -4}deg)` : 'none',
-                                    transition: 'transform 0.1s ease-out'
-                                }}
                             >
                                 <Image
                                     src="/DrizzlCafe1.jpeg"
@@ -208,26 +183,33 @@ export default function AboutPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 1 }}
                     >
-                        {/* Chapter header — same line */}
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 mb-8 md:mb-12 border-b border-black/10">
-                            <div className="flex items-center gap-3 md:gap-4">
-                                <div className="h-[1px] w-8 md:w-10 bg-gold-500/50" />
-                                <span className="text-black/50 text-[9px] md:text-[10px] font-bold tracking-[0.4em] md:tracking-[0.8em] uppercase">The Chronicle</span>
+                        {/* Chapter header — improved premium style */}
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 mb-12 md:mb-16 border-b border-black/5">
+                            <div className="flex items-center gap-4">
+                                <span className="bg-black py-1.5 px-4 rounded-full text-white text-[9px] font-bold tracking-[0.3em] uppercase shadow-lg shadow-black/10">
+                                    The Chronicle
+                                </span>
+                                <div className="size-1 rounded-full bg-gold-500/40" />
+                                <span className="text-black/40 text-[9px] font-bold tracking-[0.2em] uppercase">Authentic Heritage</span>
                             </div>
-                            <span className="text-gold-500 text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.6em] uppercase">Chapter I: The Vision</span>
+                            <div className="flex items-center gap-3 bg-gold-500/5 px-4 py-1.5 rounded-full border border-gold-500/10">
+                                <div className="w-2 h-[1px] bg-gold-500" />
+                                <span className="text-gold-500 text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase">Chapter I: The Vision</span>
+                            </div>
                         </div>
 
                         {/* Main content: THE DREAM. left | quote right — same row */}
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-14">
                             {/* Left: heading + eyebrow */}
                             <div>
-                                <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-4 md:mb-6">
-                                    <div className="h-[1px] w-6 md:w-8 bg-gold-500" />
-                                    <span className="text-[8px] md:text-[9px] font-bold tracking-[0.3em] md:tracking-[0.6em] uppercase text-black/50">Est. 2024 · Marina Mall</span>
-                                    <div className="size-1 rounded-full bg-gold-500/60" />
-                                    <span className="text-[8px] md:text-[9px] font-bold tracking-[0.3em] md:tracking-[0.6em] uppercase text-gold-500">Café</span>
+                                <div className="inline-flex items-center backdrop-blur-sm bg-black/5 border border-black/5 rounded-full px-5 py-2 mb-8 md:mb-10 group hover:bg-black transition-all duration-500">
+                                    <span className="text-[9px] font-bold tracking-[0.4em] uppercase text-black group-hover:text-white transition-colors">Est. 2024</span>
+                                    <div className="w-6 h-[1px] bg-gold-500/40 mx-3 group-hover:w-8 transition-all" />
+                                    <span className="text-[9px] font-bold tracking-[0.4em] uppercase text-black group-hover:text-white transition-colors">Marina Mall</span>
+                                    <div className="size-1.5 rounded-full bg-gold-500 mx-3" />
+                                    <span className="text-[9px] font-bold tracking-[0.4em] uppercase text-gold-500">Café</span>
                                 </div>
-                                <h2 className="font-serif text-[17vw] md:text-[10vw] lg:text-[8rem] text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase">
+                                <h2 className="font-serif text-[17vw] md:text-[10vw] lg:text-[8rem] text-black leading-[0.85] tracking-tighter uppercase">
                                     OUR <br />
                                     <span className="ml-[2vw]">STORY.</span>
                                 </h2>
@@ -296,24 +278,30 @@ export default function AboutPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 1 }}
                     >
-                        {/* Chapter header — same line */}
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 mb-8 md:mb-12 border-b border-black/10">
-                            <div className="flex items-center gap-3 md:gap-4">
-                                <div className="h-[1px] w-8 md:w-10 bg-gold-500/50" />
-                                <span className="text-black/50 text-[9px] md:text-[10px] font-bold tracking-[0.4em] md:tracking-[0.8em] uppercase">The Source</span>
+                        {/* Chapter II header — improved premium style */}
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 mb-12 md:mb-16 border-b border-black/5">
+                            <div className="flex items-center gap-4">
+                                <span className="bg-black py-1.5 px-4 rounded-full text-white text-[9px] font-bold tracking-[0.3em] uppercase shadow-lg shadow-black/10">
+                                    The Source
+                                </span>
+                                <div className="size-1 rounded-full bg-gold-500/40" />
+                                <span className="text-black/40 text-[9px] font-bold tracking-[0.2em] uppercase">Single Origin focus</span>
                             </div>
-                            <span className="text-gold-500 text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.6em] uppercase">Chapter II: The Origin</span>
+                            <div className="flex items-center gap-3 bg-gold-500/5 px-4 py-1.5 rounded-full border border-gold-500/10">
+                                <div className="w-2 h-[1px] bg-gold-500" />
+                                <span className="text-gold-500 text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase">Chapter II: The Origin</span>
+                            </div>
                         </div>
 
                         {/* Text left, image right — balanced */}
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-end">
                             {/* Left: heading + story + details all together */}
                             <div className="space-y-8 order-2 lg:order-1">
-                                <h3 className="font-serif text-[12vw] md:text-[7vw] lg:text-[5rem] text-[#1a1a1a] leading-[0.88] tracking-tighter uppercase">
+                                <h3 className="font-serif text-[12vw] md:text-[7vw] lg:text-[5rem] text-black leading-[0.88] tracking-tighter uppercase">
                                     DAILY <br />
                                     <span className="text-gold-500 italic font-light">JOY.</span>
                                 </h3>
-                                <p className="text-black/60 text-base font-light leading-relaxed">
+                                <p className="text-black text-base font-light leading-relaxed">
                                     Our focus is simple — consistent quality, friendly service, and a comfortable environment that makes every visit enjoyable.
                                     <br /><br />
                                     We partner exclusively with micro-lot estates in <span className="text-gold-500">Kodagu and Chikmagalur</span> to ensure that every cup reflects our commitment to excellence and local heritage.
@@ -322,15 +310,15 @@ export default function AboutPage() {
                                 <div className="space-y-5 pt-5 border-t border-black/[0.08]">
                                     <div>
                                         <p className="text-gold-500 text-xs font-bold tracking-[0.4em] uppercase mb-1.5">Sensory Note</p>
-                                        <p className="text-black/70 text-sm font-serif italic leading-relaxed">Aromatic complexity met with a silken mouthfeel. The quintessential luxury cup.</p>
+                                        <p className="text-black text-sm font-serif italic leading-relaxed">Aromatic complexity met with a silken mouthfeel. The quintessential luxury cup.</p>
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <div className="size-1.5 rounded-full bg-gold-500 shadow-[0_0_8px_#C9A96E]" />
-                                        <p className="text-black/75 text-xs font-bold tracking-widest uppercase">1,500m Elevation · Single Origin Arabica</p>
+                                        <p className="text-black text-xs font-bold tracking-widest uppercase">1,500m Elevation · Single Origin Arabica</p>
                                     </div>
                                     <div>
                                         <p className="text-gold-500 text-xs font-bold tracking-[0.4em] uppercase mb-1.5">Pure Impact.</p>
-                                        <p className="text-black/65 text-xs font-bold tracking-[0.3em] uppercase">The Drizzl Standard</p>
+                                        <p className="text-black text-[10px] font-bold tracking-[0.3em] uppercase">The Drizzl Standard</p>
                                     </div>
                                 </div>
 
@@ -400,19 +388,31 @@ export default function AboutPage() {
                 <span className="absolute right-0 bottom-0 text-[35vw] font-display font-black text-black/[0.03] select-none pointer-events-none leading-none">03</span>
 
                 {/* Full width grid — px matches rest of page but no max-width cap */}
-                <div className="relative z-20 w-full px-6 md:px-12 lg:px-20 py-8 md:py-10">
-                    <div className="grid lg:grid-cols-12 gap-8 items-center">
+                <div className="relative z-20 w-full px-6 md:px-12 lg:px-20 py-16 md:py-24">
+                    {/* Chapter III header — matching premium style */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 mb-12 md:mb-16 border-b border-black/5">
+                        <div className="flex items-center gap-4">
+                            <span className="bg-black py-1.5 px-4 rounded-full text-white text-[9px] font-bold tracking-[0.3em] uppercase shadow-lg shadow-black/10">
+                                The Impact
+                            </span>
+                            <div className="size-1 rounded-full bg-gold-500/40" />
+                            <span className="text-black/40 text-[9px] font-bold tracking-[0.2em] uppercase">Community & Craft</span>
+                        </div>
+                        <div className="flex items-center gap-3 bg-gold-500/5 px-4 py-1.5 rounded-full border border-gold-500/10">
+                            <div className="w-2 h-[1px] bg-gold-500" />
+                            <span className="text-gold-500 text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase">Chapter III: The Influence</span>
+                        </div>
+                    </div>
 
-                        {/* Left: Text */}
+                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="lg:col-span-7 space-y-6"
+                            className="lg:col-span-7 space-y-8 text-left"
                         >
-                            <span className="text-gold-500 text-[10px] font-bold tracking-[0.6em] uppercase block">Chapter III: The Impact</span>
-                            <p className="text-black/55 text-xl md:text-2xl lg:text-3xl font-serif font-light leading-[1.3] italic">
-                                &ldquo;Luxury is not about the price point. It&apos;s about the <span className="text-gold-500">consistency</span> of the brew and the warmth of the soul behind it.&rdquo;
+                            <p className="text-black text-2xl md:text-3xl lg:text-[2.75rem] font-serif font-light leading-[1.2] italic">
+                                &ldquo;Luxury is not about the price point. It&apos;s about the <span className="text-gold-500 font-normal">consistency</span> of the brew and the warmth of the soul behind it.&rdquo;
                             </p>
 
                             <div className="flex flex-wrap gap-6 sm:gap-10 pt-4 border-t border-black/[0.07]">
@@ -462,7 +462,7 @@ export default function AboutPage() {
                             <span className="text-gold-500 text-[10px] md:text-xs font-bold tracking-[0.4em] md:tracking-[0.5em] uppercase">
                                 The Alchemy
                             </span>
-                            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-coffee-900 leading-[0.9]">
+                            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-black leading-[0.9]">
                                 FROM SOIL <br className="hidden lg:block" /> TO <span className="italic text-gold-500">SIP.</span>
                             </h2>
                         </div>
@@ -498,9 +498,9 @@ export default function AboutPage() {
 
                                     <div className="w-full lg:w-1/2 flex flex-col xl:flex-row items-center xl:items-start gap-8 relative text-center lg:text-left">
                                         <div className="flex-1 space-y-4 md:space-y-6 w-full">
-                                            <h3 className="font-serif text-3xl md:text-4xl lg:text-6xl text-coffee-900">{step.title}</h3>
+                                            <h3 className="font-serif text-3xl md:text-4xl lg:text-6xl text-black">{step.title}</h3>
                                             <div className="w-12 h-[2px] bg-gold-500 mx-auto lg:mx-0"></div>
-                                            <p className="text-coffee-900/70 text-base md:text-lg leading-relaxed font-light">
+                                            <p className="text-black text-base md:text-lg leading-relaxed font-light">
                                                 {step.text}
                                             </p>
                                         </div>
@@ -566,12 +566,7 @@ export default function AboutPage() {
                         ].map((item, i) => (
                             <div key={i} className={`relative rounded-2xl md:rounded-[24px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-700 hover:scale-[1.01] ${item.mobileClass} md:aspect-auto ${item.desktopClass}`}>
                                 <Image src={item.src} alt="Gallery Image" fill className="object-cover transition-transform duration-[3s] group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-700"></div>
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                    <span className="bg-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-coffee-900 shadow-xl">
-                                        View Story
-                                    </span>
-                                </div>
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-700"></div>
                             </div>
                         ))}
                     </div>
