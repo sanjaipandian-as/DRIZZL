@@ -19,9 +19,6 @@
     text-rendering: optimizeLegibility;
   }
 
-  ::selection {
-    @apply bg-gold-500 text-white;
-  }
 }
 
 @layer utilities {

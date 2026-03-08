@@ -99,7 +99,7 @@ export default function AboutPage() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#FDFCFB] text-coffee-950 selection:bg-gold-500 selection:text-white overflow-x-hidden font-sans">
+        <div className="min-h-screen bg-[#FDFCFB] text-coffee-950 overflow-x-hidden font-sans">
             <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-50 mix-blend-multiply"
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
             </div>
@@ -169,7 +169,7 @@ export default function AboutPage() {
             </section>
 
             {/* ── THE EDITORIAL: OUR STORY ── */}
-            <section className="relative pt-10 pb-20 md:pt-16 md:pb-32 overflow-x-hidden bg-white selection:bg-gold-500/30">
+            <section className="relative pt-10 pb-20 md:pt-16 md:pb-32 overflow-x-hidden bg-white">
                 {/* Texture & Ambient Depth */}
                 <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-50 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
                 <div className="absolute top-[-20%] right-[-10%] w-[100vw] h-[100vw] bg-gold-500/[0.04] rounded-full blur-[180px] pointer-events-none" />
@@ -380,7 +380,7 @@ export default function AboutPage() {
             </section>
 
             {/* ── CHAPTER III: THE IMPACT — Standalone Full-Width Section ── */}
-            <section className="relative bg-[#FAFAF8] overflow-hidden selection:bg-gold-500/30">
+            <section className="relative bg-[#FAFAF8] overflow-hidden">
                 {/* Texture */}
                 <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
 

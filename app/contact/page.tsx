@@ -38,7 +38,7 @@ export default function ContactPage() {
     };
 
     return (
-        <div ref={containerRef} className="min-h-screen bg-[#FBF9F7] text-coffee-950 selection:bg-gold-500 selection:text-white overflow-hidden">
+        <div ref={containerRef} className="min-h-screen bg-[#FBF9F7] text-coffee-950 overflow-hidden">
 
             {/* 1. CINEMATIC LIGHT HERO */}
             <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-cream-100 px-4">

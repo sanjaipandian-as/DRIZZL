@@ -8,18 +8,18 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-[#0C0908] text-white pt-24 pb-12 relative overflow-hidden">
+        <footer className="bg-[#0C0908] text-white pt-12 pb-8 md:pt-24 md:pb-12 relative overflow-hidden">
             {/* Background Decorative Accent */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 font-display text-[22vw] text-white/[0.02] select-none leading-none pointer-events-none whitespace-nowrap">
                 DRIZZL CAFÉ
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-24 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 md:gap-16 lg:gap-24 mb-10 md:mb-20">
 
                     {/* Brand & Mission - 5 cols */}
-                    <div className="lg:col-span-5 space-y-12">
-                        <div className="space-y-8">
+                    <div className="lg:col-span-5 space-y-8 md:space-y-12">
+                        <div className="space-y-6 md:space-y-8">
                             <Link href="/" className="inline-block group">
                                 <div className="flex items-center gap-4 md:gap-5">
                                     <div className="relative w-14 h-14 md:w-20 md:h-20 bg-white/5 p-2 md:p-3 rounded-2xl border border-white/10 group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-500 shrink-0">
@@ -54,23 +54,30 @@ export default function Footer() {
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                                 </svg>
                                 <span className="text-[10px] font-bold tracking-[0.2em] uppercase">@drizzlcafe</span>
-                                <span className="h-[1px] w-0 bg-gold-500 transition-all duration-500 group-hover:w-6"></span>
+                                <div className="relative w-0 group-hover:w-6 transition-all duration-500 ease-out overflow-hidden flex items-center">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-gold-500 shadow-[0_0_8px_rgba(200,153,104,0.6)] ml-2"></div>
+                                </div>
                             </a>
                         </div>
                     </div>
 
                     {/* Navigation - 2 cols */}
-                    <div className="lg:col-span-2 space-y-10">
+                    <div className="lg:col-span-2 space-y-6 md:space-y-10">
                         <h4 className="text-[10px] font-bold uppercase tracking-[0.5em] text-gold-500">Navigation</h4>
-                        <ul className="space-y-4">
+                        <ul className="space-y-6">
                             {siteConfig.nav.map((item) => (
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="text-coffee-200 hover:text-coffee-50 transition-all duration-300 text-xs uppercase tracking-[0.2em] font-bold flex items-center gap-3 group"
+                                        className="text-coffee-200 hover:text-white transition-all duration-500 text-[10px] uppercase tracking-[0.3em] font-bold flex items-center gap-0 group"
                                     >
-                                        <span className="h-[1px] w-0 bg-gold-500 transition-all duration-500 group-hover:w-4"></span>
-                                        {item.name}
+                                        <div className="relative w-0 group-hover:w-6 transition-all duration-500 ease-out overflow-hidden flex items-center">
+                                            <div className="w-2 h-2 rounded-full bg-gold-500 shadow-[0_0_12px_rgba(200,153,104,0.8)]"></div>
+                                            <div className="absolute inset-0 w-2 h-2 rounded-full bg-gold-500 animate-ping opacity-0 group-hover:opacity-30"></div>
+                                        </div>
+                                        <span className="transition-all duration-500 group-hover:text-gold-500">
+                                            {item.name}
+                                        </span>
                                     </Link>
                                 </li>
                             ))}
@@ -78,9 +85,9 @@ export default function Footer() {
                     </div>
 
                     {/* Contact & Hours - 5 cols */}
-                    <div className="lg:col-span-5 space-y-10">
+                    <div className="lg:col-span-5 space-y-6 md:space-y-10">
                         <h4 className="text-[10px] font-bold uppercase tracking-[0.5em] text-gold-500">Inquiries</h4>
-                        <div className="grid md:grid-cols-2 gap-12">
+                        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                             <div className="space-y-4">
                                 <p className="text-xs font-bold tracking-widest text-coffee-100 uppercase">Find Us</p>
                                 <p className="text-coffee-200 text-sm leading-relaxed font-light">
@@ -103,7 +110,7 @@ export default function Footer() {
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="pt-10 border-t border-cream-100/5 space-y-4">
+                        <div className="pt-8 md:pt-10 border-t border-cream-100/5 space-y-4">
                             <p className="text-[10px] font-bold tracking-[0.3em] text-coffee-300 uppercase">Reach Us Instantly</p>
                             <div className="flex flex-col sm:flex-row gap-3">
                                 {/* WhatsApp CTA */}
@@ -137,7 +144,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+                <div className="pt-8 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10">
                     <div className="flex items-center gap-8 text-[9px] font-bold tracking-[0.4em] text-coffee-400 uppercase">
                         <p>© 2026 DRIZZL GROUP</p>
                         <span className="h-4 w-[1px] bg-white/5"></span>
