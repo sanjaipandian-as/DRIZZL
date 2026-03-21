@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -102,6 +102,7 @@ export default function Header() {
     const [isDesktop, setIsDesktop] = useState(false);
     const [isHidden, setIsHidden] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const scrollStopTimeout = useRef<NodeJS.Timeout | null>(null);
     const { scrollY } = useScroll();
 
     useEffect(() => {
@@ -128,13 +129,29 @@ export default function Header() {
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() ?? 0;
+
+        // 1. ELITE UX: Detection for Scroll Stop
+        if (scrollStopTimeout.current) clearTimeout(scrollStopTimeout.current);
+        scrollStopTimeout.current = setTimeout(() => {
+            setIsHidden(false); // Show when user stops scrolling after 2 seconds
+        }, 1000);
+
+        // 2. ELITE UX: Show on Scroll Up, Hide on Scroll Down
         if (latest > previous && latest > 150) {
-            setIsHidden(true);
-        } else {
-            setIsHidden(false);
+            setIsHidden(true); // Hide on Scroll Down
+        } else if (latest < previous) {
+            setIsHidden(false); // Show on Scroll Up
         }
+
         setIsScrolled(latest > 20);
     });
+
+    // Cleanup timeout on unmount
+    useEffect(() => {
+        return () => {
+            if (scrollStopTimeout.current) clearTimeout(scrollStopTimeout.current);
+        };
+    }, []);
 
     const navLinks = [
         { name: 'HOME', href: '/' },
@@ -222,7 +239,6 @@ export default function Header() {
                                         <Link
                                             key={link.name}
                                             href={link.href}
-                                            onClick={() => setIsMenuOpen(false)}
                                             className={`text-[12px] font-bold tracking-[0.2em] uppercase transition-colors duration-300 py-1 relative ${isActive
                                                 ? 'text-black'
                                                 : 'text-black/50 hover:text-black'

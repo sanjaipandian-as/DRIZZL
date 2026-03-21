@@ -32,14 +32,14 @@ export default function ContentProtection() {
             }
         };
 
-        // document.addEventListener('contextmenu', handleContextMenu);
-        // document.addEventListener('dragstart', handleDragStart);
-        // document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('contextmenu', handleContextMenu);
+        document.addEventListener('dragstart', handleDragStart);
+        document.addEventListener('keydown', handleKeyDown);
 
         return () => {
-            // document.removeEventListener('contextmenu', handleContextMenu);
-            // document.removeEventListener('dragstart', handleDragStart);
-            // document.removeEventListener('keydown', handleKeyDown);
+            document.removeEventListener('contextmenu', handleContextMenu);
+            document.removeEventListener('dragstart', handleDragStart);
+            document.removeEventListener('keydown', handleKeyDown);
         };
     }, []);
 

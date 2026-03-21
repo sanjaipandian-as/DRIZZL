@@ -9,7 +9,7 @@ const PROCESS_STEPS = [
         number: "01",
         title: "Sourcing",
         text: "Direct trade with micro-lot farmers worldwide, selecting only the top 1% of Arabica beans.",
-        img: "/drizzle2.avif",
+        img: "/drizzle2.png",
         video: "/sourcing.mp4",
         videoTitle: "Origin Journey",
         videoSub: "Direct Trade"
@@ -89,47 +89,35 @@ function VideoCard({ src, title, sub }: { src: string, title?: string, sub?: str
 
 export default function AboutPage() {
     const [isLoaded, setIsLoaded] = useState(false);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const heroRef = useRef<HTMLElement>(null);
+    const storyRef = useRef<HTMLElement>(null);
 
-    const [mounted, setMounted] = useState(false);
+
 
     useEffect(() => {
-        setMounted(true);
+
         setIsLoaded(true);
-
-        const handleMouseMove = (e: MouseEvent) => {
-            if (heroRef.current && window.innerWidth > 1024) {
-                const { left, top, width, height } = heroRef.current.getBoundingClientRect();
-                const x = (e.clientX - left) / width - 0.5;
-                const y = (e.clientY - top) / height - 0.5;
-                setMousePosition({ x, y });
-            }
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#FDFCFB] text-coffee-950 selection:bg-gold-500 selection:text-white overflow-x-hidden font-sans">
+        <div className="min-h-screen bg-[#FDFCFB] text-coffee-950 overflow-x-hidden font-sans">
             <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-50 mix-blend-multiply"
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
             </div>
 
-            <section ref={heroRef} className="relative pt-20 lg:pt-24 pb-4 px-4 md:px-6 flex flex-col justify-center overflow-hidden lg:perspective-1000">
+            <section ref={heroRef} className="relative pt-20 md:pt-28 lg:pt-36 pb-16 lg:pb-32 px-4 md:px-6 flex flex-col justify-center overflow-hidden lg:perspective-1000">
 
 
-                <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+                <div className="container mx-auto max-w-8xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center relative z-10">
                     <div className="lg:col-span-6 space-y-6 md:space-y-8 lg:space-y-12 order-1 text-center lg:text-left">
                         <div className={`transition-all duration-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                            <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-6">
+                            {/* <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-6">
                                 <span className="h-[2px] w-8 md:w-12 bg-gold-500"></span>
                                 <span className="text-gold-500 text-[10px] md:text-xs font-bold tracking-[0.4em] md:tracking-[0.6em] uppercase">The Origin Story</span>
-                            </div>
-                            <h1 className="font-serif text-[18vw] md:text-[12vw] lg:text-[9rem] leading-[0.85] tracking-tight text-black drop-shadow-sm">
+                            </div> */}
+                            <h1 className="font-serif text-[15vw] md:text-[10vw] lg:text-[6.5rem] xl:text-[8rem] 2xl:text-[9rem] leading-[0.85] tracking-tight text-black drop-shadow-sm">
                                 BEYOND <br />
-                                <span className="italic font-light lg:ml-8 text-black">GRAVITY.</span>
+                                <span className="italic font-light lg:ml-12 text-black">GRAVITY.</span>
                             </h1>
                             <p className="mt-6 text-coffee-900/60 text-base md:text-xl font-light leading-relaxed max-w-lg mx-auto lg:mx-0 border-l-0 lg:border-l-2 border-gold-500/30 lg:pl-8">
                                 We are not just a cafe. We are a sanctuary for the senses, engineering moments of absolute perfection in every cup.
@@ -137,18 +125,16 @@ export default function AboutPage() {
                         </div>
 
                         <div className={`flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-4 md:pt-8 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                            <button className="w-full sm:w-auto bg-coffee-900 text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase hover:bg-gold-500 hover:text-coffee-900 transition-all shadow-xl">
+                            <button 
+                                onClick={() => storyRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                                className="w-full sm:w-auto bg-coffee-900 text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase hover:bg-gold-500 hover:text-coffee-900 transition-all shadow-xl"
+                            >
                                 Discover More
                             </button>
-                            <div className="flex -space-x-3 md:-space-x-4">
-                                {[1, 2, 3].map(i => (
-                                    <div key={i} className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white bg-gray-200"></div>
-                                ))}
-                            </div>
                         </div>
                     </div>
 
-                    <div className="lg:col-span-6 relative h-[50vh] sm:h-[60vh] lg:h-[80vh] w-full order-2 lg:perspective-1000 mt-12 lg:mt-0">
+                    <div className="lg:col-span-6 relative h-[50vh] sm:h-[60vh] lg:h-[70vh] max-h-[600px] w-full order-2 lg:perspective-1000 mt-12 lg:mt-0">
                         {/* The Premium Frame Container */}
                         <div className="relative h-full w-full flex items-center justify-center">
 
@@ -157,11 +143,7 @@ export default function AboutPage() {
 
                             {/* Main Arch Image */}
                             <motion.div
-                                className={`relative w-full lg:w-[95%] h-full rounded-t-full overflow-hidden shadow-[0_60px_120px_-20px_rgba(0,0,0,0.35)] border-[12px] border-white transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 scale-95'}`}
-                                style={{
-                                    transform: mounted && window.innerWidth > 1024 ? `perspective(1000px) rotateY(${mousePosition.x * 4}deg) rotateX(${mousePosition.y * -4}deg)` : 'none',
-                                    transition: 'transform 0.1s ease-out'
-                                }}
+                                className={`relative w-full lg:w-[90%] lg:ml-auto h-full pt-10 rounded-t-full overflow-hidden shadow-[0_60px_120px_-20px_rgba(0,0,0,0.35)] border-[12px] border-white transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 scale-95'}`}
                             >
                                 <Image
                                     src="/DrizzlCafe1.jpeg"
@@ -185,16 +167,16 @@ export default function AboutPage() {
                             </motion.div>
 
                             {/* EST 2024 Subtle Side Label */}
-                            <div className="absolute -right-4 top-1/2 -translate-y-1/2 vertical-text text-coffee-900/20 text-[10px] font-bold tracking-[1em] uppercase hidden 2xl:block select-none pointer-events-none">
+                            {/* <div className="absolute -right-4 top-1/2 -translate-y-1/2 vertical-text text-coffee-900/20 text-[10px] font-bold tracking-[1em] uppercase hidden 2xl:block select-none pointer-events-none">
                                 EST. 2024
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* ── THE EDITORIAL: OUR STORY ── */}
-            <section className="relative pt-10 pb-20 md:pt-16 md:pb-32 overflow-x-hidden bg-white selection:bg-gold-500/30">
+            <section ref={storyRef} className="relative pt-10 pb-20 md:pt-16 md:pb-32 overflow-x-hidden bg-white">
                 {/* Texture & Ambient Depth */}
                 <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-50 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
                 <div className="absolute top-[-20%] right-[-10%] w-[100vw] h-[100vw] bg-gold-500/[0.04] rounded-full blur-[180px] pointer-events-none" />
@@ -203,10 +185,10 @@ export default function AboutPage() {
 
                     {/* ── CHAPTER I ── */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1 }}
+                        viewport={{ once: true, margin: "200px", amount: 0 }}
+                        transition={{ duration: 0.6 }}
                     >
                         {/* Chapter header — same line */}
                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 mb-8 md:mb-12 border-b border-black/10">
@@ -221,12 +203,7 @@ export default function AboutPage() {
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-14">
                             {/* Left: heading + eyebrow */}
                             <div>
-                                <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-4 md:mb-6">
-                                    <div className="h-[1px] w-6 md:w-8 bg-gold-500" />
-                                    <span className="text-[8px] md:text-[9px] font-bold tracking-[0.3em] md:tracking-[0.6em] uppercase text-black/50">Est. 2024 · Marina Mall</span>
-                                    <div className="size-1 rounded-full bg-gold-500/60" />
-                                    <span className="text-[8px] md:text-[9px] font-bold tracking-[0.3em] md:tracking-[0.6em] uppercase text-gold-500">Café</span>
-                                </div>
+
                                 <h2 className="font-serif text-[17vw] md:text-[10vw] lg:text-[8rem] text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase">
                                     OUR <br />
                                     <span className="ml-[2vw]">STORY.</span>
@@ -255,7 +232,6 @@ export default function AboutPage() {
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 py-5 md:py-7 border-y border-black/[0.08] mb-8 md:mb-12">
                             <div>
                                 <p className="text-xl md:text-2xl font-serif text-[#1a1a1a] mb-1">2024</p>
-                                <p className="text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase text-black/50">Est. · Marina Mall</p>
                             </div>
                             <div>
                                 <p className="text-xl md:text-2xl font-serif text-[#1a1a1a] mb-1">1,500m</p>
@@ -269,10 +245,10 @@ export default function AboutPage() {
 
                         {/* Chapter I Image — wide cinematic, not overpowering */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 1.02 }}
+                            initial={{ opacity: 0, scale: 1.01 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+                            viewport={{ once: true, margin: "200px", amount: 0 }}
+                            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                             className="relative aspect-[21/8] w-full rounded-sm overflow-hidden shadow-lg group"
                         >
                             <Image
@@ -291,10 +267,10 @@ export default function AboutPage() {
 
                     {/* ── CHAPTER II ── */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1 }}
+                        viewport={{ once: true, margin: "200px", amount: 0 }}
+                        transition={{ duration: 0.6 }}
                     >
                         {/* Chapter header — same line */}
                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 mb-8 md:mb-12 border-b border-black/10">
@@ -335,11 +311,11 @@ export default function AboutPage() {
                                 </div>
 
                                 {/* Fill image — closes the white gap against the right image */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 1.2, delay: 0.4 }}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 15 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, margin: "200px", amount: 0 }}
+                                        transition={{ duration: 0.8, delay: 0.1 }}
                                     className="relative aspect-[16/10] w-full rounded-sm overflow-hidden shadow-md group"
                                 >
                                     <Image
@@ -358,11 +334,11 @@ export default function AboutPage() {
 
                             {/* Right: image — aspect ratio balanced with text */}
                             {/* Right: Premium Dual-Image Composition */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 30 }}
+                             <motion.div
+                                initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1.2, delay: 0.2 }}
+                                viewport={{ once: true, margin: "200px", amount: 0 }}
+                                transition={{ duration: 0.8, delay: 0.1 }}
                                 className="order-1 lg:order-2 relative"
                             >
                                 {/* Background Decorative Shape */}
@@ -392,7 +368,7 @@ export default function AboutPage() {
             </section>
 
             {/* ── CHAPTER III: THE IMPACT — Standalone Full-Width Section ── */}
-            <section className="relative bg-[#FAFAF8] overflow-hidden selection:bg-gold-500/30">
+            <section className="relative bg-[#FAFAF8] overflow-hidden">
                 {/* Texture */}
                 <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
 
@@ -404,10 +380,10 @@ export default function AboutPage() {
                     <div className="grid lg:grid-cols-12 gap-8 items-center">
 
                         {/* Left: Text */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                         <motion.div
+                            initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "200px", amount: 0 }}
                             className="lg:col-span-7 space-y-6"
                         >
                             <span className="text-gold-500 text-[10px] font-bold tracking-[0.6em] uppercase block">Chapter III: The Impact</span>
@@ -428,10 +404,10 @@ export default function AboutPage() {
                         </motion.div>
 
                         {/* Right: Circular Image */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
+                         <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "200px", amount: 0 }}
                             className="lg:col-span-5 flex items-center justify-center"
                         >
                             <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full border border-gold-500/20 p-3 flex-shrink-0">
@@ -473,13 +449,13 @@ export default function AboutPage() {
 
                     <div className="w-full max-w-7xl mx-auto space-y-16 md:space-y-24 lg:space-y-32">
                         {PROCESS_STEPS.map((step, i) => (
-                            <motion.div
+                                 <motion.div
                                 key={i}
                                 className="group flex flex-col gap-10 md:gap-16"
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+                                viewport={{ once: true, margin: "250px", amount: 0 }}
+                                transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
                             >
                                 <div className="flex flex-col gap-8 lg:gap-20 items-center lg:flex-row">
                                     <div className="w-full lg:w-1/2 relative">
@@ -527,7 +503,7 @@ export default function AboutPage() {
                 </div>
                 <div className="container mx-auto px-6 relative z-10 text-center text-white">
                     <div className="max-w-4xl mx-auto space-y-12 md:space-y-16">
-                        <span className="inline-block border border-white/20 px-8 py-2 rounded-full text-[10px] font-bold tracking-[0.4em] uppercase backdrop-blur-md">Our Manifesto</span>
+                        {/* <span className="inline-block border border-white/20 px-8 py-2 rounded-full text-[10px] font-bold tracking-[0.4em] uppercase backdrop-blur-md">Our Manifesto</span> */}
                         <h2 className="font-serif text-4xl sm:text-5xl md:text-8xl lg:text-[10rem] leading-[1] md:leading-[0.85]">
                             CRAFTED FOR THE <br />
                             <span className="text-gold-500 italic">OBSESSED.</span>
@@ -566,12 +542,6 @@ export default function AboutPage() {
                         ].map((item, i) => (
                             <div key={i} className={`relative rounded-2xl md:rounded-[24px] overflow-hidden group shadow-sm hover:shadow-2xl transition-all duration-700 hover:scale-[1.01] ${item.mobileClass} md:aspect-auto ${item.desktopClass}`}>
                                 <Image src={item.src} alt="Gallery Image" fill className="object-cover transition-transform duration-[3s] group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-700"></div>
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                    <span className="bg-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-coffee-900 shadow-xl">
-                                        View Story
-                                    </span>
-                                </div>
                             </div>
                         ))}
                     </div>

@@ -36,10 +36,8 @@ export default function GallerySection() {
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <div className="max-w-xl space-y-4">
-                        <h2 className="text-rust-600 font-bold tracking-[0.3em] uppercase text-sm">
-                            Capture the Moment
-                        </h2>
-                        <h3 className="font-display text-5xl md:text-7xl text-forest-900 leading-tight">
+
+                        <h3 className="font-display text-7xl md:text-7.5xl text-forest-900 leading-tight">
                             Step Inside <span className="text-rust-600">Drizzl Café</span>
                         </h3>
                     </div>

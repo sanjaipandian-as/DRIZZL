@@ -20,7 +20,8 @@
   }
 
   ::selection {
-    @apply bg-gold-500 text-white;
+    background-color: rgba(0, 0, 0, 0.08) !important;
+    color: inherit !important;
   }
 }
 
@@ -77,7 +78,8 @@ img,
 video {
   -webkit-user-drag: none;
   user-drag: none;
-  pointer-events: auto;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* Prevent layout shift during font loading */
@@ -102,4 +104,13 @@ video {
 
 .animate-soft-float {
   animation: soft-float 4s ease-in-out infinite;
+}
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

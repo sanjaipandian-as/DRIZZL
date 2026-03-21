@@ -3,7 +3,6 @@ import { Inter, Bebas_Neue, Playfair_Display, Dancing_Script, Bodoni_Moda, Syne,
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import ContentProtection from "@/components/common/ContentProtection";
 import CookieConsent from "@/components/common/CookieConsent";
 import { siteConfig } from "@/lib/constants";
 
@@ -76,7 +75,6 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${inter.variable} ${bebasNeue.variable} ${playfair.variable} ${dancingScript.variable} ${bodoni.variable} ${syne.variable} ${cormorant.variable}`}>
             <body className="font-sans flex flex-col min-h-screen">
-                <ContentProtection />
                 <Header />
                 <main className="flex-grow">
                     {children}
