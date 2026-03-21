@@ -69,13 +69,13 @@ const LandingPage = () => {
                             transition={{ duration: 0.7, delay: 0.2 }}
                             className="space-y-1 md:space-y-2 mb-6 md:mb-8"
                         >
-                            <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold leading-[0.9] text-[#1A3C34]">
+                            <h1 className="text-[2.2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[5rem] font-serif font-bold leading-[0.9] text-[#1A3C34]">
                                 BREWING THE
                             </h1>
-                            <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold leading-[0.9] text-[#1A3C34]">
+                            <h1 className="text-[2.2rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[5rem] font-serif font-bold leading-[0.9] text-[#1A3C34]">
                                 PERFECT
                             </h1>
-                            <h1 className="font-royal text-[2.8rem] sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.12em] text-[#4a3424] pt-1">
+                            <h1 className="font-royal text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[6rem] font-light tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.12em] text-[#4a3424] pt-1">
                                 DRIZZL
                             </h1>
                         </motion.div>
@@ -101,20 +101,20 @@ const LandingPage = () => {
                             className="flex items-center gap-6 sm:gap-8 mb-6 md:mb-8"
                         >
                             <div className="flex flex-col">
-                                <span className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-[#1A3C34]">
+                                <span className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-[#1A3C34]">
                                     <Counter from={0} to={10000} suffix="+" />
                                 </span>
-                                <span className="text-[10px] sm:text-xs font-medium text-[#1A3C34]/50 uppercase tracking-widest whitespace-nowrap">
+                                <span className="text-[9px] sm:text-[10px] font-medium text-[#1A3C34]/50 uppercase tracking-widest whitespace-nowrap">
                                     Happy Customers
                                 </span>
                             </div>
 
-                            <div className="w-[1px] h-10 bg-[#4A2C1D]/10"></div>
+                            <div className="w-[1px] h-8 bg-[#4A2C1D]/10"></div>
 
                             <div className="flex flex-col">
-                                <div className="flex items-center gap-1 text-xl sm:text-2xl md:text-3xl font-serif font-bold text-[#1A3C34]">
+                                <div className="flex items-center gap-1 text-lg sm:text-xl md:text-2xl font-serif font-bold text-[#1A3C34]">
                                     <span>4.5</span>
-                                    <Star size={16} className="fill-[#4A2C1D] text-[#4A2C1D] sm:w-5 sm:h-5" />
+                                    <Star size={14} className="fill-[#4A2C1D] text-[#4A2C1D] sm:w-4 sm:h-4" />
                                 </div>
                                 <span className="text-[10px] sm:text-xs font-medium text-[#1A3C34]/50 uppercase tracking-widest">
                                     Rated
@@ -165,23 +165,24 @@ const LandingPage = () => {
                         </motion.p>
                     </div>
 
-                    {/* Right Side Image */}
-                    <div className="relative h-[800px] w-full hidden lg:flex items-center justify-center perspective-1000">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#E8EBDD] rounded-full blur-3xl opacity-50"></div>
+                    {/* Right Side Image - Majestic Boutique Scale */}
+                    <div className="relative h-[550px] lg:h-[700px] xl:h-[800px] w-full hidden lg:flex items-center justify-center perspective-1000">
+                        {/* Soft Ambient Depth - Proportional Scaling */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] lg:w-[550px] lg:h-[550px] bg-[#E8EBDD] rounded-full blur-[120px] opacity-60"></div>
 
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9, y: 30 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             transition={{ duration: 1.2, ease: "easeOut" }}
-                            className="absolute w-[600px] h-[750px] z-10"
+                            className="relative w-[450px] h-[580px] lg:w-[520px] lg:h-[680px] xl:w-[580px] xl:h-[750px] z-10"
                         >
-                            <div className="relative w-full h-full overflow-hidden">
+                            <div className="relative w-full h-full">
                                 <Image
                                     src="/imagebg2.png"
                                     fill
                                     priority
-                                    className="object-cover"
-                                    alt="Coffee Experience"
+                                    className="object-contain"
+                                    alt="Artisan Coffee Splash"
                                 />
                             </div>
                         </motion.div>

@@ -13,6 +13,15 @@ export default function CookieConsent() {
         if (!consent) {
             setIsVisible(true);
         }
+
+        // ELITE: Listen for changes from other tabs
+        const handleStorageChange = (e: StorageEvent) => {
+            if (e.key === 'drizzl-cookie-consent' && e.newValue === 'true') {
+                setIsVisible(false);
+            }
+        };
+        window.addEventListener('storage', handleStorageChange);
+        return () => window.removeEventListener('storage', handleStorageChange);
     }, []);
 
     const handleAccept = () => {
